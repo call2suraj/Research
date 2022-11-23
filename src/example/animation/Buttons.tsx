@@ -30,7 +30,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
 
     useEffect(() => {
         Animated.spring(translationFour, {
-            toValue: 100,
+            toValue: 250,
             // delay: 900,
             useNativeDriver: true,
         }).start();

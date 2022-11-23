@@ -51,7 +51,7 @@ const ScalingButton: React.FC<Props> = (props: Props) => {
 
     const buttonScale = scaleValue.interpolate({
         inputRange: [0, 0.5, 1],
-        outputRange: [1, 1.1, 1]
+        outputRange: [1, 1.5, 1]
     });
 
     return (
