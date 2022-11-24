@@ -17,10 +17,12 @@ Recomended Versions:
 
 Node:
 $ node -v
+
 v19.1.0
 
 NPM:
 $ npm -v
+
 8.15.0
 
 Yarn:
