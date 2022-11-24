@@ -17,18 +17,26 @@ Recomended Versions:
 
 Node:
 $ node -v
+
 v19.1.0
 
 NPM:
 $ npm -v
+
 8.15.0
 
 Yarn:
 $ yarn -v
+
 1.22.19
 
 
 Demo
 
+Android:
+
 https://user-images.githubusercontent.com/31704596/203524133-60490b38-57cc-401d-8fd2-5a628dce7c11.mp4
 
+IOS:
+
+https://user-images.githubusercontent.com/31704596/203732639-c037d70d-eb6f-43a3-a4a4-c5ac0b27991a.mp4
