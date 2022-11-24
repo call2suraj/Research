@@ -11,6 +11,15 @@ Steps For Setup:
 8. After the server starts press a to open the app in emulator
 9. If you want to run the app in actual device then open expo go and scan the QR code given in erver through expo Go app.
 
+Recomended Versions:
+
+$ node -v
+v19.1.0
+$ npm -v
+8.15.0
+$ yarn -v
+1.22.19
+
 
 Demo
 
