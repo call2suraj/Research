@@ -87,10 +87,11 @@ const Buttons: React.FC<Props> = (props: Props) => {
         <View>
             <View
                 style={{
-                    width: 100,
+                    width: 150,
                     height: 50,
                     marginBottom: 10,
                     marginTop: 10,
+                    paddingTop:5,
                     backgroundColor: 'orange',
                     transform: [{ translateX: translation }],
                 }}
@@ -118,12 +119,14 @@ const Buttons: React.FC<Props> = (props: Props) => {
 
             <Animated.View
                 style={{
-                    width: 100,
+                    width: 150,
                     height: 50,
+                    paddingTop:5,
+                    backgroundColor: '#2196f3',
                     transform: [{ translateY: translationTwo }],
                 }}
             >
-                <Button
+                <Button color={"white"}
                     title="Bouncing Button"
                     accessible={true}
                     accessibilityLabel="Go back"
@@ -136,12 +139,14 @@ const Buttons: React.FC<Props> = (props: Props) => {
             <Animated.View
                 style={{
                     marginTop: 80,
-                    width: 100,
+                    backgroundColor: '#2196f3',
+                    paddingTop:5,
+                    width: 150,
                     height: 50,
                     transform: [{ translateY: translationFour }],
                 }}
             >
-                <Button
+                <Button color={"white"}
                     title="Spring Button"
                     accessible={true}
                     accessibilityLabel="Go back"
