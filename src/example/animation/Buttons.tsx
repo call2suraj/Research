@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Animated, Easing, View, Alert, Button } from 'react-native';
+import { StyleSheet, Animated, Easing, View, Alert, Button, Text, TouchableOpacity, Linking } from 'react-native';
 
 import ScalingButton from './ScalingButton';
 import DisplayAnImage from './ImageAnimation';
@@ -7,6 +7,7 @@ import { Props } from './index';
 
 const Buttons: React.FC<Props> = (props: Props) => {
     const [translation, setTranslation] = useState(0);
+    //const [textTranslation, setTextTranslation] = useState(0);
 
     const translationTwo = useRef(
         new Animated.Value(0)
@@ -17,6 +18,10 @@ const Buttons: React.FC<Props> = (props: Props) => {
     ).current;
 
     const translationFour = useRef(
+        new Animated.Value(0)
+    ).current;
+
+    const textTranslation = useRef(
         new Animated.Value(0)
     ).current;
 
@@ -44,12 +49,30 @@ const Buttons: React.FC<Props> = (props: Props) => {
         }
     }, []);
 
+    // useEffect(() => {
+    //     for (let i = 10; i < 10; i++) {
+    //         setTimeout(() => {
+    //             setTextTranslation(i);
+    //         }, 5 * i);
+    //     }
+    // }, []);
+
+    useEffect(() => {
+        Animated.timing(textTranslation, {
+            toValue: 10,
+            easing: Easing.bounce,
+            duration: 1900,
+            delay: 900,
+            useNativeDriver: true,
+        }).start();
+    }, []);
+
     useEffect(() => {
         Animated.timing(translationTwo, {
             toValue: 150,
             easing: Easing.bounce,
             duration: 1900,
-            delay: 900,
+            delay: 1900,
             useNativeDriver: true,
         }).start();
     }, []);
@@ -60,26 +83,26 @@ const Buttons: React.FC<Props> = (props: Props) => {
     }
 
 
-    const renderBoxes = (start) =>{
+    const renderBoxes = (start) => {
         var selected_animations = animations.slice(start, start + 3);
         return selected_animations.map((animation, index) => {
-          return (
-     
-            <ScalingButton 
-              key={index}
-              onPress={this.stopAnimation.bind(this, animation[0])} 
-              noDefaultStyles={true}
-            >
-              <Animatable.View 
-                ref={animation[0]}
-                style={[styles.box, { backgroundColor: animation[1] }]}
-                animation={animation[0]} 
-                iterationCount={"infinite"}>
-                <Text style={styles.box_text}>{ animation[0] }</Text>
-              </Animatable.View>
-            </ScalingButton>
-     
-          );
+            return (
+
+                <ScalingButton
+                    key={index}
+                    onPress={this.stopAnimation.bind(this, animation[0])}
+                    noDefaultStyles={true}
+                >
+                    <Animatable.View
+                        ref={animation[0]}
+                        style={[styles.box, { backgroundColor: animation[1] }]}
+                        animation={animation[0]}
+                        iterationCount={"infinite"}>
+                        <Text style={styles.box_text}>{animation[0]}</Text>
+                    </Animatable.View>
+                </ScalingButton>
+
+            );
         });
     }
 
@@ -91,7 +114,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                     height: 50,
                     marginBottom: 10,
                     marginTop: 10,
-                    paddingTop:5,
+                    paddingTop: 5,
                     backgroundColor: 'orange',
                     transform: [{ translateX: translation }],
                 }}
@@ -121,7 +144,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                 style={{
                     width: 150,
                     height: 50,
-                    paddingTop:5,
+                    paddingTop: 5,
                     backgroundColor: '#2196f3',
                     transform: [{ translateY: translationTwo }],
                 }}
@@ -140,7 +163,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                 style={{
                     marginTop: 80,
                     backgroundColor: '#2196f3',
-                    paddingTop:5,
+                    paddingTop: 5,
                     width: 150,
                     height: 50,
                     transform: [{ translateY: translationFour }],
@@ -172,8 +195,31 @@ const Buttons: React.FC<Props> = (props: Props) => {
 
             {/* <DisplayAnImage /> */}
 
+            <Animated.View>
+                <Text style={{ marginLeft: 50 }}>Some text<Animated.View style={{
+                    width: 145,
+                    height: 20,
+                    paddingTop: 5,
+                    transform: [{ translateX: textTranslation }],
+                }}>
+                    <View style={{ flexDirection: 'row', height: 50, paddingTop: 0 }}>
+                        <TouchableOpacity
+                            accessible={true}
+                            accessibilityLabel="Text Button Example, Click Me!"
+                            accessibilityHint="Hint Double Tab"
+                            accessibilityRole="link"
+                            onPress={() => Linking.openURL('https://google.com')}
+                        >
+                            <View style={{ flex: 1, flexDirection: 'row', paddingBottom: 15 }}>
+                                <Text style={{ color: 'blue' }}>{'Nested Text.'}</Text>
+                                <Text style={{ height: 20, color: 'blue' }}
+                                >Click Me!</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </Animated.View></Text>
+            </Animated.View>
         </View>
-
     );
 }
 
