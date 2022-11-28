@@ -21,6 +21,10 @@ const Buttons: React.FC<Props> = (props: Props) => {
         new Animated.Value(0)
     ).current;
 
+    const translationFive = useRef(
+        new Animated.Value(0)
+    ).current;
+
     const textTranslation = useRef(
         new Animated.Value(0)
     ).current;
@@ -35,14 +39,24 @@ const Buttons: React.FC<Props> = (props: Props) => {
 
     useEffect(() => {
         Animated.spring(translationFour, {
-            toValue: 250,
+            toValue: 40,
             // delay: 900,
             useNativeDriver: true,
         }).start();
     }, []);
 
     useEffect(() => {
-        for (let i = 0; i < 150; i++) {
+        Animated.spring(translationFive, {
+            toValue: 40,
+            delay: 900,
+            useNativeDriver: true,
+        }).start();
+    }, []);
+
+    
+
+    useEffect(() => {
+        for (let i = 0; i < 40; i++) {
             setTimeout(() => {
                 setTranslation(i);
             }, 70 * i);
@@ -69,7 +83,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
 
     useEffect(() => {
         Animated.timing(translationTwo, {
-            toValue: 150,
+            toValue: 40,
             easing: Easing.bounce,
             duration: 1900,
             delay: 1900,
@@ -108,28 +122,39 @@ const Buttons: React.FC<Props> = (props: Props) => {
 
     return (
         <View>
-            <View
-                style={{
-                    width: 150,
-                    height: 50,
-                    marginBottom: 10,
-                    marginTop: 10,
-                    paddingTop: 5,
-                    backgroundColor: 'orange',
-                    transform: [{ translateX: translation }],
-                }}
-            >
-                <Button
-                    title="Animated Button"
-                    accessible={true}
-                    accessibilityLabel="Go back"
-                    accessibilityHint="Hint button type"
-                    accessibilityRole="button"
-                    onPress={() => Alert.alert('pressed')}
-                />
-            </View>
 
             <View>
+                <View style={{ backgroundColor: '#1abc9c', height: 30, marginTop: 3, marginBottom: 5 }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Moving Button in one line'}</Text>
+                </View>
+                <View
+                    style={{
+                        width: 150,
+                        height: 40,
+                        marginBottom: 1,
+                        marginTop: 1,
+                        paddingTop: 5,
+                        backgroundColor: '#2196f3',
+
+                        transform: [{ translateX: translation }],
+                    }}
+                >
+                    <Button
+                        title="Animated Button"
+                        accessible={true}
+                        accessibilityLabel="Go back"
+                        accessibilityHint="Hint button type"
+                        accessibilityRole="button"
+                        onPress={() => Alert.alert('pressed')}
+                    />
+                </View>
+            </View>
+            
+
+            <View>
+                <View style={{ backgroundColor: '#1abc9c', height: 30, marginTop: 3, marginBottom: 5 }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Delayed Moving Button in one line'}</Text>
+                </View>
                 <Animated.View
                     style={{
                         width: 100,
@@ -139,86 +164,108 @@ const Buttons: React.FC<Props> = (props: Props) => {
                     }}
                 />
             </View>
+        
 
-            <Animated.View
-                style={{
-                    width: 150,
-                    height: 50,
-                    paddingTop: 5,
-                    backgroundColor: '#2196f3',
-                    transform: [{ translateY: translationTwo }],
-                }}
-            >
-                <Button color={"white"}
-                    title="Bouncing Button"
-                    accessible={true}
-                    accessibilityLabel="Go back"
-                    accessibilityHint="Hint button type"
-                    accessibilityRole="button"
-                    onPress={() => Alert.alert('pressed')}
-                />
-            </Animated.View>
+            <View>
+                <View style={{ backgroundColor: '#1abc9c', height: 30, marginTop: 3, marginBottom: 5 }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Bouncing Button'}</Text>
+                </View>
+                <Animated.View
+                    style={{
+                        width: 150,
+                        height: 40,
+                        paddingTop: 3,
+                        backgroundColor: '#2196f3',
+                        transform: [{ translateY: translationTwo }],
+                    }}
+                >
+                    <Button
+                        title="Bouncing Button"
+                        accessible={true}
+                        accessibilityLabel="Go back"
+                        accessibilityHint="Hint button type"
+                        accessibilityRole="button"
+                        onPress={() => Alert.alert('pressed')}
+                    />
+                </Animated.View>
+            </View>
+            
 
-            <Animated.View
-                style={{
-                    marginTop: 80,
-                    backgroundColor: '#2196f3',
-                    paddingTop: 5,
-                    width: 150,
-                    height: 50,
-                    transform: [{ translateY: translationFour }],
-                }}
-            >
-                <Button color={"white"}
-                    title="Spring Button"
-                    accessible={true}
-                    accessibilityLabel="Go back"
-                    accessibilityHint="Hint button type"
-                    accessibilityRole="button"
-                    onPress={() => Alert.alert('pressed')}
-                />
-            </Animated.View>
+            <View style={{ height: 130, marginTop: 50, marginBottom: 5, }}>
+                <View style={{ backgroundColor: '#1abc9c', height: 30, marginTop: 3, marginBottom: 5, }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Spring Button'}</Text>
+                </View>
+                <Animated.View
+                    style={{
+                        backgroundColor: '#2196f3',
+                        paddingTop: 5,
+                        width: 150,
+                        height: 40,
+                        transform: [{ translateY: translationFive }],
+                    }}
+                >
+                    <Button
+                        title="Spring Button"
+                        accessible={true}
+                        accessibilityLabel="Go back"
+                        accessibilityHint="Hint button type"
+                        accessibilityRole="button"
+                        onPress={() => Alert.alert('pressed')}
+                    />
+                </Animated.View>
+            </View>
 
-            <Animated.View
-                style={{
-                    margin: 50,
-                    width: 300,
-                    height: 150,
-                    transform: [{ translateY: translationFour }],
-                }}
-            >
-                <ScalingButton
-                    label="Scaling Button"
-                    onPress={() => press()}
-                    styles={{ button: styles.animated_button, label: styles.button_label }} />
-            </Animated.View>
+            <View>
+                <View style={{ backgroundColor: '#1abc9c', height: 30, marginTop: 3, marginBottom: 5, }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Scaling Button'}</Text>
+                </View>
+                <Animated.View
+                    style={{
+                        marginLeft: 50,
+                        width: 200,
+                        height: 100,
+                        transform: [{ translateY: translationFour }],
+                    }}
+                >
+                    <ScalingButton
+                        label="Scaling Button"
+                        onPress={() => press()}
+                        styles={{ button: styles.animated_button, label: styles.button_label }} />
+                </Animated.View>
+            </View>
 
             {/* <DisplayAnImage /> */}
 
-            <Animated.View>
-                <Text style={{ marginLeft: 50 }}>Some text<Animated.View style={{
-                    width: 145,
-                    height: 20,
-                    paddingTop: 5,
-                    transform: [{ translateX: textTranslation }],
-                }}>
-                    <View style={{ flexDirection: 'row', height: 50, paddingTop: 0 }}>
-                        <TouchableOpacity
-                            accessible={true}
-                            accessibilityLabel="Text Button Example, Click Me!"
-                            accessibilityHint="Hint Double Tab"
-                            accessibilityRole="link"
-                            onPress={() => Linking.openURL('https://google.com')}
-                        >
-                            <View style={{ flex: 1, flexDirection: 'row', paddingBottom: 15 }}>
-                                <Text style={{ color: 'blue' }}>{'Nested Text.'}</Text>
-                                <Text style={{ height: 20, color: 'blue' }}
-                                >Click Me!</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                </Animated.View></Text>
-            </Animated.View>
+            <View>
+                <View style={{ backgroundColor: '#1abc9c', height: 30,marginBottom: 5, }}>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Nested Text'}</Text>
+                </View>
+                <Animated.View>
+                    <Text style={{ marginLeft: 50 }}>Some text<Animated.View style={{
+                        width: 145,
+                        height: 20,
+                        paddingTop: 5,
+                        transform: [{ translateX: textTranslation }],
+                    }}>
+                        <View style={{ flexDirection: 'row', height: 50, paddingTop: 0 }}>
+                            <TouchableOpacity
+                                accessible={true}
+                                accessibilityLabel="Text Button Example, Click Me!"
+                                accessibilityHint="Hint Double Tab"
+                                accessibilityRole="link"
+                                onPress={() => Linking.openURL('https://google.com')}
+                            >
+                                <View style={{ flex: 1, flexDirection: 'row', paddingBottom: 15 }}>
+                                    <Text style={{ color: 'blue' }}>{'Nested Text.'}</Text>
+                                    <Text style={{ height: 20, color: 'blue' }}
+                                    >Click Me!</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                    </Animated.View></Text>
+                </Animated.View>
+            </View>
+            
         </View>
     );
 }
