@@ -124,7 +124,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
         <View>
 
             <View>
-                <View style={{ backgroundColor: '#1abc9c', height: 30, marginTop: 3, marginBottom: 5 }}>
+                <View style={styles.header}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Moving Button in one line'}</Text>
                 </View>
                 <View
@@ -152,7 +152,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
             
 
             <View>
-                <View style={{ backgroundColor: '#1abc9c', height: 30, marginTop: 3, marginBottom: 5 }}>
+                <View style={styles.header}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Delayed Moving Button in one line'}</Text>
                 </View>
                 <Animated.View
@@ -167,7 +167,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
         
 
             <View>
-                <View style={{ backgroundColor: '#1abc9c', height: 30, marginTop: 3, marginBottom: 5 }}>
+                <View style={styles.header}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Bouncing Button'}</Text>
                 </View>
                 <Animated.View
@@ -192,7 +192,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
             
 
             <View style={{ height: 130, marginTop: 50, marginBottom: 5, }}>
-                <View style={{ backgroundColor: '#1abc9c', height: 30, marginTop: 3, marginBottom: 5, }}>
+                <View style={styles.header}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Spring Button'}</Text>
                 </View>
                 <Animated.View
@@ -216,7 +216,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
             </View>
 
             <View>
-                <View style={{ backgroundColor: '#1abc9c', height: 30, marginTop: 3, marginBottom: 5, }}>
+                <View style={styles.header}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Scaling Button'}</Text>
                 </View>
                 <Animated.View
@@ -237,7 +237,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
             {/* <DisplayAnImage /> */}
 
             <View>
-                <View style={{ backgroundColor: '#1abc9c', height: 30,marginBottom: 5, }}>
+                <View style={styles.nested_header}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Nested Text'}</Text>
                 </View>
                 <Animated.View>
@@ -265,7 +265,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                     </Animated.View></Text>
                 </Animated.View>
             </View>
-            
+
         </View>
     );
 }
@@ -287,6 +287,15 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 20,
         fontWeight: 'bold'
+    },
+    header:{
+        backgroundColor: '#0c570a', height: 30, marginTop: 3, marginBottom: 5
+    },
+    nested_header:{ 
+        //backgroundColor: '#1abc9c', 
+        backgroundColor: '#0c570a',
+        height: 30,
+        marginBottom: 5, 
     }
 });
 
