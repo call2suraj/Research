@@ -1,29 +1,46 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Animated, Easing, View, Alert} from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Alert } from 'react-native';
 
-import { ScButton, SpButton } from './AnimatedButtons';
+import { ScButton, SpButton, BoButton } from './AnimatedButtons';
 import { Props } from './index';
 
-    class AButton extends React.Component {
-        constructor(props) {
-          super(props);
-          this.press = this.press.bind(this);
-        }
-      
-        handlePress(){
-            //do anything you want
-            Alert.alert('Pressed button')
-        }
-      
-        render() {
-            return (
-                <View>
-        
-                    <SpButton press={this.handlePress} />
-                    <ScButton press={this.handlePress} />
-                </View>
-            );
-        }
+class AButton extends React.Component {
+    constructor(props) {
+        super(props);
+        //this.press = this.press.bind(this);
+    }
+
+    handlePress() {
+        //do anything you want
+        Alert.alert('Pressed button')
+    }
+
+    render() {
+        return (
+            <View>
+
+                <SpButton
+                    press={this.handlePress}
+                    labelText={'Spring Button'}
+                    toValue={40}
+                    delay={900}
+                />
+                <ScButton
+                    press={this.handlePress}
+                    labelText={'Scaling Button'}
+                    toValue={1}
+                    delay={300} />
+
+                <BoButton
+                    press={this.handlePress}
+                    labelText={'Bouncing Button'}
+                    toValue={25}
+                    delay={900} 
+                    duration={1900}
+                    />
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({

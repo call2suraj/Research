@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { StyleSheet, Animated, Easing, View, Alert, Button } from 'react-native';
+import { StyleSheet, Animated, Easing, View, Button } from 'react-native';
 import { Props } from './index';
 
 const SpringButton: React.FC<Props> = (props: Props) => {
@@ -9,8 +9,8 @@ const SpringButton: React.FC<Props> = (props: Props) => {
 
     useEffect(() => {
         Animated.spring(translationFive, {
-            toValue: 40,
-            delay: 900,
+            toValue: props.toValue,
+            delay: props.delay,
             useNativeDriver: true,
         }).start();
     }, []);

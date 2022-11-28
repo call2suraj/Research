@@ -30,8 +30,10 @@ const ScalingButton: React.FC<Props> = (props: Props) => {
 
     useEffect(() => {
         Animated.timing(scaleValue, {
-            toValue: 1,
-            delay: 300,
+            // toValue: 1,
+            // delay: 300,
+            toValue: props.toValue,
+            delay: props.delay,
             easing: Easing.easeOutBack,
             useNativeDriver: true,
         }).start();

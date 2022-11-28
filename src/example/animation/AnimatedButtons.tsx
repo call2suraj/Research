@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, View, Alert, Button, Text } from 'react-native';
+import React, { useRef } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 
 import { SpringButton } from './SpringButton';
 import ScalingButton from './ScalingButton';
+import BounceButton from './BounceButton';
 import { Props } from './index';
 
 const ScButton: React.FC<Props> = (props: Props) => (
@@ -11,8 +12,10 @@ const ScButton: React.FC<Props> = (props: Props) => (
             <Text style={styles.textstyle}>{'Scaling Button'}</Text>
         </View>
         <ScalingButton
-            labelText={'Scaling Button'}
+            labelText={props.labelText}
             callBack={props.press}
+            toValue={props.toValue}
+            delay={props.delay}
             styles={{ button: styles.animated_button, label: styles.button_label }} />
     </View>
 );
@@ -23,9 +26,29 @@ const SpButton: React.FC<Props> = (props: Props) => (
         <View style={styles.header}>
             <Text style={styles.textstyle}>{'Spring Button'}</Text>
         </View>
-        <SpringButton labelText={'Spring Button'} callBack={props.press} />
+        <SpringButton
+            labelText={props.labelText}
+            callBack={props.press}
+            toValue={props.toValue}
+            delay={props.delay} />
     </View>
 );
+
+
+const BoButton: React.FC<Props> = (props: Props) => (
+    <View>
+        <View style={styles.header}>
+            <Text style={styles.textstyle}>{'Spring Button'}</Text>
+        </View>
+        <BounceButton
+            labelText={props.labelText}
+            callBack={props.press}
+            toValue={props.toValue}
+            delay={props.delay} 
+            duration={props.duration}/>
+    </View>
+);
+
 
 const styles = StyleSheet.create({
     container: {
@@ -49,4 +72,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export { ScButton, SpButton };
+export { ScButton, SpButton, BoButton };

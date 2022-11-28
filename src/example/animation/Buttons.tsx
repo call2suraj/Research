@@ -7,7 +7,6 @@ import { Props } from './index';
 
 const Buttons: React.FC<Props> = (props: Props) => {
     const [translation, setTranslation] = useState(0);
-    //const [textTranslation, setTextTranslation] = useState(0);
 
     const translationTwo = useRef(
         new Animated.Value(0)
