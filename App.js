@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Button, Pressable, } from 'react-native';
 import FedInFedOut from './src/animation/FedInFedOut';
 import Accordion from './src/example/animation/Accordion';
 import Buttons from './src/example/animation/Buttons';
+import AButton from './src/example/animation/AButton';
 
 import InnerComponent from './src/example/animation/InnerComponent';
 import LayoutAnimations from './src/example/animation/LayoutAnimations';
@@ -26,24 +27,42 @@ export default function App() {
 
       <View style={{ flexDirection: "row" }}>
 
-        <View style={styles.buttonStyle}>
-          <Button title="Buttons" onPress={() => selectComponent('Buttons')} style={{fontSize:10}}/>
+        <View style={styles.pressbutton}>
+          <Pressable onPress={() => selectComponent('Buttons')} style={{fontSize:10}}>
+          <Text style={{fontSize: 16, color:'white'}}>Buttons</Text>
+          </Pressable>
         </View>
 
-        <View style={styles.buttonStyle}>
-          <Button title="Accordion" onPress={() => selectComponent('Accordion')} />
+        <View style={styles.pressbutton}>
+          <Pressable onPress={() => selectComponent('Accordion')} style={{ fontSize: 10 }}>
+            <Text style={{ fontSize: 16, color: 'white' }}>Accordion</Text>
+          </Pressable>
         </View>
 
-        <View style={styles.buttonStyle}>
-          <Button title="Fedin" onPress={() => selectComponent('Fedin')} />
+
+        <View style={styles.pressbutton}>
+          <Pressable onPress={() => selectComponent('Fedin')} style={{ fontSize: 10 }}>
+            <Text style={{ fontSize: 16, color: 'white' }}>Fedin</Text>
+          </Pressable>
         </View>
 
-        <View style={styles.buttonStyle}>
-          <Button title="Layout" onPress={() => selectComponent('Layout')} />
+        <View style={styles.pressbutton}>
+          <Pressable onPress={() => selectComponent('Layout')} style={{ fontSize: 10 }}>
+            <Text style={{ fontSize: 16, color: 'white' }}>Layout</Text>
+          </Pressable>
         </View>
 
-        <View style={styles.buttonStyle}>
-          <Button title="DragDrop" onPress={() => selectComponent('DragDrop')} />
+
+        <View style={styles.pressbutton}>
+          <Pressable onPress={() => selectComponent('DragDrop')} style={{ fontSize: 10 }}>
+            <Text style={{ fontSize: 16, color: 'white' }}>DragDrop</Text>
+          </Pressable>
+        </View>
+
+        <View style={styles.pressbutton}>
+          <Pressable onPress={() => selectComponent('AButton')} style={{ fontSize: 10 }}>
+            <Text style={{ fontSize: 16, color: 'white' }}>AButton</Text>
+          </Pressable>
         </View>
       </View>
 
@@ -67,6 +86,8 @@ export default function App() {
 
       {screen === 'DragDrop' && <DragDrop />}
 
+      {screen === 'AButton' && <AButton />}
+
     </View>
   );
 }
@@ -80,7 +101,10 @@ const styles = StyleSheet.create({
   buttonStyle: {
     marginHorizontal: 2,
     marginTop: 5,
-
+width: 80,
+fontSize: 10,
+backgroundColor: '#2196F3',
+color:'white'
   },
   button: {
     alignItems: 'center',
@@ -98,4 +122,13 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: 'white',
   },
+  pressbutton: {
+  marginHorizontal: 2,
+  height:30,
+  width: 'auto',
+  fontSize: 10,
+  padding: 4,
+  backgroundColor: '#2196F3',
+  color: 'white'
+}
 });

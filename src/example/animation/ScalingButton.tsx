@@ -68,12 +68,12 @@ const ScalingButton: React.FC<Props> = (props: Props) => {
             >
                 <View>
                     <Button
-                        title="Scalling Button"
+                        title={props.labelText || ''}
                         accessible={true}
                         accessibilityLabel="Go back"
                         accessibilityHint="Hint button type"
                         accessibilityRole="button"
-                        onPress={() => Alert.alert('pressed')}
+                        onPress={()=>props.callBack()}
                     />
                 </View>
             </Animated.View>
