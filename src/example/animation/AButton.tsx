@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Alert } from 'react-native';
+import { StyleSheet, View, Alert,Text } from 'react-native';
 
 import { ScButton, SpButton, BoButton } from './AnimatedButtons';
 import { Props } from './index';
@@ -19,25 +19,42 @@ class AButton extends React.Component {
         return (
             <View>
 
-                <SpButton
-                    press={this.handlePress}
-                    labelText={'Spring Button'}
-                    toValue={40}
-                    delay={900}
-                />
-                <ScButton
-                    press={this.handlePress}
-                    labelText={'Scaling Button'}
-                    toValue={1}
-                    delay={300} />
-
-                <BoButton
-                    press={this.handlePress}
-                    labelText={'Bouncing Button'}
-                    toValue={25}
-                    delay={900} 
-                    duration={1900}
+                <View style={styles.container}>
+                    <View style={styles.header}>
+                        <Text style={styles.textstyle}>{'Bouncing Button'}</Text>
+                    </View>
+                    <SpButton
+                        press={this.handlePress}
+                        labelText={'Spring Button'}
+                        toValue={40}
+                        delay={900}
                     />
+                </View>
+
+                <View style={styles.container}>
+                    <View style={styles.header}>
+                        <Text style={styles.textstyle}>{'Bouncing Button'}</Text>
+                    </View>
+                    <ScButton
+                        press={this.handlePress}
+                        labelText={'Scaling Button'}
+                        toValue={1}
+                        delay={300} />
+                </View>
+
+                <View style={styles.container}>
+                    <View style={styles.header}>
+                        <Text style={styles.textstyle}>{'Bouncing Button'}</Text>
+                    </View>
+                    <BoButton
+                        press={this.handlePress}
+                        labelText={'Bouncing Button'}
+                        toValue={25}
+                        delay={1200}
+                        duration={1900}
+                    />
+                </View>
+
             </View>
         );
     }
@@ -45,9 +62,8 @@ class AButton extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        flexDirection: 'column',
-        padding: 30
+        backgroundColor:'white', 
+        height: 125
     },
     header: {
         backgroundColor: '#0c570a', height: 30, marginTop: 3, marginBottom: 5
@@ -62,7 +78,9 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         color: 'white'
-    }
+    },
+
+  
 });
 
 export default AButton;

@@ -7,10 +7,7 @@ import BounceButton from './BounceButton';
 import { Props } from './index';
 
 const ScButton: React.FC<Props> = (props: Props) => (
-    <View style={{ marginTop: 40 }}>
-        <View style={styles.header}>
-            <Text style={styles.textstyle}>{'Scaling Button'}</Text>
-        </View>
+    <View>
         <ScalingButton
             labelText={props.labelText}
             callBack={props.press}
@@ -23,9 +20,6 @@ const ScButton: React.FC<Props> = (props: Props) => (
 
 const SpButton: React.FC<Props> = (props: Props) => (
     <View>
-        <View style={styles.header}>
-            <Text style={styles.textstyle}>{'Spring Button'}</Text>
-        </View>
         <SpringButton
             labelText={props.labelText}
             callBack={props.press}
@@ -37,9 +31,6 @@ const SpButton: React.FC<Props> = (props: Props) => (
 
 const BoButton: React.FC<Props> = (props: Props) => (
     <View>
-        <View style={styles.header}>
-            <Text style={styles.textstyle}>{'Spring Button'}</Text>
-        </View>
         <BounceButton
             labelText={props.labelText}
             callBack={props.press}
