@@ -1,13 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Alert,Text } from 'react-native';
 
-import { ScButton, SpButton, BoButton } from './AnimatedButtons';
-import { Props } from './index';
+import { ScButton, SpButton, BoButton } from '../../components/animation/AnimatedButtons';
 
 class AButton extends React.Component {
     constructor(props) {
         super(props);
-        //this.press = this.press.bind(this);
     }
 
     handlePress() {
@@ -63,7 +61,8 @@ class AButton extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'white', 
-        height: 125
+        height: 125,
+        borderRadius:4
     },
     header: {
         backgroundColor: '#0c570a', height: 30, marginTop: 3, marginBottom: 5

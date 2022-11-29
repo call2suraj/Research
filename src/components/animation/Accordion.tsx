@@ -64,8 +64,8 @@ class Accordion extends Component {
         this.y_translate = new Animated.Value(0);
         this.state = { isHidden: this.props.isCollapse || false };
     }
+    
     onPress() {
-
         this.setState({ isHidden: !this.state.isHidden });
         if (this.state.isHidden) {
             {

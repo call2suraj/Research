@@ -15,8 +15,8 @@ UIManager.setLayoutAnimationEnabledExperimental &&
 
 export default class LayoutAnimations extends React.Component {
   state = {
-    w: 100,
-    h: 100,
+    w: 70,
+    h: 70,
   };
 
   _onPress = () => {
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 5
   },
   box: {
     width: 200,
@@ -52,8 +53,8 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: 'black',
-    paddingHorizontal: 20,
-    paddingVertical: 15,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
     marginTop: 15,
   },
   buttonText: {

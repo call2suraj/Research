@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Animated, Text, View, StyleSheet, Button, SafeAreaView, Image } from "react-native";
 
 const FedInFedOut = () => {
@@ -16,6 +16,7 @@ const FedInFedOut = () => {
     };
 
     const fadeOut = () => {
+        console.log('invoked....')
         // Will change fadeAnim value to 0 in 3 seconds
         Animated.timing(fadeAnim, {
             toValue: 0,
@@ -24,16 +25,38 @@ const FedInFedOut = () => {
         }).start();
     };
 
+
+
+    useEffect(() => {
+        console.log('invoked....')
+        Animated.timing(fadeAnim, {
+            toValue: 1,
+            duration: 5000,
+            useNativeDriver: false,
+        }).start();
+    }, []);
+
+
     return (
         <SafeAreaView style={styles.container}>
             <Animated.View
-                style={[
-                    styles.fadingContainer,
-                    {
-                        // Bind opacity to animated value
-                        opacity: fadeAnim
-                    }
-                ]}
+            style={{
+                //backgroundColor: '#2196f3',
+                paddingTop: 5,
+                width: 150,
+                height: 40,
+                opacity: fadeAnim,
+                padding: 10,
+                backgroundColor: "powderblue",
+                transform: [{ translateY: fadeAnim }],
+            }}
+                // style={[
+                //     styles.fadingContainer,
+                //     {
+                //         // Bind opacity to animated value
+                //         opacity: fadeAnim
+                //     }
+                // ]}
             >
                 <Text style={styles.fadingText}>Fading View!</Text>
                 <Image
@@ -44,7 +67,7 @@ const FedInFedOut = () => {
 
             <View style={{ flexDirection: "row" }}>
                 <View style={styles.buttonStyle}>
-                    <Button title="Fade In View" onPress={fadeIn} />
+                    <Button title="Fade In View.." onPress={fadeIn} />
                 </View>
                 <View style={styles.buttonStyle}>
                     <Button title="Fade Out View" onPress={fadeOut} />

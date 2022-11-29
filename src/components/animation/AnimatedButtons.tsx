@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { SpringButton } from './SpringButton';
 import ScalingButton from './ScalingButton';

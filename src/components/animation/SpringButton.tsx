@@ -16,13 +16,14 @@ const SpringButton: React.FC<Props> = (props: Props) => {
     }, []);
 
     return (
-        <View>
+        <View style={{marginLeft: 8}}>
                 <Animated.View
                     style={{
                         backgroundColor: '#2196f3',
                         paddingTop: 5,
                         width: 150,
                         height: 40,
+                        //borderRadius:9,
                         transform: [{ translateY: translationFive }],
                     }}
                 >

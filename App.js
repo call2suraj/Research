@@ -2,13 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Pressable, } from 'react-native';
 import FedInFedOut from './src/animation/FedInFedOut';
-import Accordion from './src/example/animation/Accordion';
-import Buttons from './src/example/animation/Buttons';
-import AButton from './src/example/animation/AButton';
+import Accordion from './src/components/animation/Accordion';
+import Buttons from './src/components/animation/Buttons';
+import AButton from './src/example/buttons/ButtonExample';
 
-import InnerComponent from './src/example/animation/InnerComponent';
-import LayoutAnimations from './src/example/animation/LayoutAnimations';
-import DragDrop from './src/example/animation/DragDrop';
+import InnerComponent from './src/components/animation/InnerComponent';
+import LayoutAnimations from './src/components/animation/LayoutAnimations';
+import LayoutExample from './src/example/layout/LayoutExample';
+import DragDrop from './src/components/animation/DragDrop';
 
 export default function App() {
   const [screen, setScreen] = useState('Buttons');
@@ -82,7 +83,7 @@ export default function App() {
 
       {screen === 'Fedin' && <FedInFedOut />}
 
-      {screen === 'Layout' && <LayoutAnimations />}
+      {screen === 'Layout' && <LayoutExample />}
 
       {screen === 'DragDrop' && <DragDrop />}
 
@@ -129,6 +130,7 @@ color:'white'
   fontSize: 10,
   padding: 4,
   backgroundColor: '#2196F3',
-  color: 'white'
+  color: 'white',
+  borderRadius:4
 }
 });

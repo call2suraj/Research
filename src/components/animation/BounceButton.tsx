@@ -32,11 +32,12 @@ const BounceButton: React.FC<Props> = (props: Props) => {
                 width: 150,
                 height: 40,
                 paddingTop: 3,
+                marginLeft: 8,
                 backgroundColor: '#2196f3',
                 transform: [{ translateY: translationTwo }],
             }}
         >
-            <Button
+            <Button // you can use Pressable aswell
                 title={props.labelText}
                 accessible={true}
                 accessibilityLabel="Go back"
