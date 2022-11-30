@@ -30,7 +30,7 @@ export default function App() {
 
         <View style={styles.pressbutton}>
           <Pressable onPress={() => selectComponent('Buttons')} style={{fontSize:10}}>
-          <Text style={{fontSize: 16, color:'white'}}>Buttons</Text>
+          <Text style={{fontSize: 16, color:'white'}}>Animations</Text>
           </Pressable>
         </View>
 
@@ -62,7 +62,7 @@ export default function App() {
 
         <View style={styles.pressbutton}>
           <Pressable onPress={() => selectComponent('AButton')} style={{ fontSize: 10 }}>
-            <Text style={{ fontSize: 16, color: 'white' }}>AButton</Text>
+            <Text style={{ fontSize: 16, color: 'white' }}>Buttons</Text>
           </Pressable>
         </View>
       </View>
@@ -111,7 +111,7 @@ color:'white'
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 2,
-    paddingHorizontal: 8,
+    paddingHorizontal: 5,
     borderRadius: 4,
     elevation: 3,
     backgroundColor: '#2196F3',
@@ -124,11 +124,11 @@ color:'white'
     color: 'white',
   },
   pressbutton: {
-  marginHorizontal: 2,
+  marginHorizontal: 1,
   height:30,
   width: 'auto',
   fontSize: 10,
-  padding: 4,
+  padding: 3,
   backgroundColor: '#2196F3',
   color: 'white',
   borderRadius:4

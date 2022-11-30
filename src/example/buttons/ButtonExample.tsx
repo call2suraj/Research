@@ -19,7 +19,7 @@ class AButton extends React.Component {
 
                 <View style={styles.container}>
                     <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Bouncing Button'}</Text>
+                        <Text style={styles.textstyle}>{'Spring Button'}</Text>
                     </View>
                     <SpButton
                         press={this.handlePress}
@@ -31,7 +31,7 @@ class AButton extends React.Component {
 
                 <View style={styles.container}>
                     <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Bouncing Button'}</Text>
+                        <Text style={styles.textstyle}>{'Scaling Button'}</Text>
                     </View>
                     <ScButton
                         press={this.handlePress}

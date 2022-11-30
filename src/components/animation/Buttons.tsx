@@ -52,7 +52,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
         }).start();
     }, []);
 
-    
+
 
     useEffect(() => {
         for (let i = 0; i < 40; i++) {
@@ -148,7 +148,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                     />
                 </View>
             </View>
-            
+
 
             <View>
                 <View style={styles.header}>
@@ -163,7 +163,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                     }}
                 />
             </View>
-        
+
 
             <View>
                 <View style={styles.header}>
@@ -188,7 +188,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                     />
                 </Animated.View>
             </View>
-            
+
 
             <View style={{ height: 130, marginTop: 50, marginBottom: 5, }}>
                 <View style={styles.header}>
@@ -229,6 +229,10 @@ const Buttons: React.FC<Props> = (props: Props) => {
                     <ScalingButton
                         label="Scaling Button"
                         onPress={() => press()}
+                        labelText={'Scaling Button'}
+                        callBack={() => press()}
+                        toValue={1}
+                        delay={300}
                         styles={{ button: styles.animated_button, label: styles.button_label }} />
                 </Animated.View>
             </View>
@@ -240,13 +244,8 @@ const Buttons: React.FC<Props> = (props: Props) => {
                     <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Nested Text'}</Text>
                 </View>
                 <Animated.View>
-                    <Text style={{ marginLeft: 50 }}>Some text<Animated.View style={{
-                        width: 145,
-                        height: 20,
-                        paddingTop: 5,
-                        transform: [{ translateX: textTranslation }],
-                    }}>
-                        <View style={{ flexDirection: 'row', height: 50, paddingTop: 0 }}>
+                    <Text style={{ marginLeft: 50 }}>Some text<View>
+                        <View style={{ flexDirection: 'row', paddingTop: 1, backgroundColor:'white' }}>
                             <TouchableOpacity
                                 accessible={true}
                                 accessibilityLabel="Text Button Example, Click Me!"
@@ -254,14 +253,18 @@ const Buttons: React.FC<Props> = (props: Props) => {
                                 accessibilityRole="link"
                                 onPress={() => Linking.openURL('https://google.com')}
                             >
-                                <View style={{ flex: 1, flexDirection: 'row', paddingBottom: 15 }}>
-                                    <Text style={{ color: 'blue' }}>{'Nested Text.'}</Text>
-                                    <Text style={{ height: 20, color: 'blue' }}
+                                <Animated.View style={{ 
+                                    flex: 1, flexDirection: 'row', 
+                                   // paddingBottom: 15 ,
+                                    transform: [{ translateY: textTranslation }],
+                                    }}>
+                                    <Text style={{ color: 'blue' }}>{' Nested Text.'}</Text>
+                                    <Text style={{ height: 25, color: 'blue' }}
                                     >Click Me!</Text>
-                                </View>
+                                </Animated.View>
                             </TouchableOpacity>
                         </View>
-                    </Animated.View></Text>
+                    </View></Text>
                 </Animated.View>
             </View>
 
@@ -287,14 +290,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold'
     },
-    header:{
+    header: {
         backgroundColor: '#0c570a', height: 30, marginTop: 3, marginBottom: 5
     },
-    nested_header:{ 
+    nested_header: {
         //backgroundColor: '#1abc9c', 
         backgroundColor: '#0c570a',
         height: 30,
-        marginBottom: 5, 
+        marginBottom: 5,
     }
 });
 
