@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { StyleSheet, Animated, Easing, View, Button } from 'react-native';
+import { StyleSheet, Animated, Easing, View, Button, Pressable, Text } from 'react-native';
 import { Props } from './index';
 
 const SpringButton: React.FC<Props> = (props: Props) => {
@@ -19,7 +19,7 @@ const SpringButton: React.FC<Props> = (props: Props) => {
         <View style={{marginLeft: 8}}>
                 <Animated.View
                     style={{
-                        backgroundColor: '#2196f3',
+                        backgroundColor: '#c20000',
                         paddingTop: 5,
                         width: 150,
                         height: 40,
@@ -27,14 +27,16 @@ const SpringButton: React.FC<Props> = (props: Props) => {
                         transform: [{ translateY: translationFive }],
                     }}
                 >
-                    <Button
-                        title={props.labelText}
+                    <Pressable
+                        //title={props.labelText}
                         accessible={true}
                         accessibilityLabel="Go back"
                         accessibilityHint="Hint button type"
                         accessibilityRole="button"
                         onPress={()=>props.callBack()}
-                    />
+                    >
+                        <Text style={{fontSize: 18, color:'white', textAlign:'center'}}>{props.labelText || ''}</Text>
+                    </Pressable>
                 </Animated.View>
         </View>
     );

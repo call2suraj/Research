@@ -19,7 +19,7 @@ class AButton extends React.Component {
 
                 <View style={styles.container}>
                     <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Bouncing Button'}</Text>
+                        <Text style={styles.textstyle}>{'Spring Button'}</Text>
                     </View>
                     <SpButton
                         press={this.handlePress}
@@ -29,15 +29,18 @@ class AButton extends React.Component {
                     />
                 </View>
 
-                <View style={styles.container}>
+                <View style={styles.midcontainer}>
                     <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Bouncing Button'}</Text>
+                        <Text style={styles.textstyle}>{'Scaling Button'}</Text>
                     </View>
+                    <View style={{alignItems:'center', justifyContent:'center', marginTop: 32}}>
                     <ScButton
                         press={this.handlePress}
                         labelText={'Scaling Button'}
                         toValue={1}
                         delay={300} />
+                    </View>
+                   
                 </View>
 
                 <View style={styles.container}>
@@ -61,24 +64,36 @@ class AButton extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'white', 
-        height: 125,
-        borderRadius:4
+        height: 225,
+        borderRadius:4,
+        marginTop: 6,
+    },
+    midcontainer: {
+        backgroundColor:'white', 
+        height: 225,
+        borderRadius:4,
+       // marginTop: 16,
     },
     header: {
-        backgroundColor: '#0c570a', height: 30, marginTop: 3, marginBottom: 5
+        backgroundColor: '#e6e6e6',  marginTop: 3, marginBottom: 5, color:'black'
     },
     nested_header: {
         //backgroundColor: '#1abc9c', 
         backgroundColor: '#0c570a',
-        height: 30,
+        height: 'auto',
         marginBottom: 5,
     },
     textstyle: {
         fontSize: 16,
-        fontWeight: 'bold',
-        color: 'white'
-    },
+        fontWeight: 'normal',
+        color: 'black',
 
+        padding: 8
+    },
+    marginextra: {
+       justifyContent: 'center',
+       marginTop: 5
+    }
   
 });
 

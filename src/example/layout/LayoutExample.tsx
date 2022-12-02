@@ -24,19 +24,6 @@ class LayoutExample extends React.Component {
                     </View>
                     <LayoutAnimations />
                 </View>
-
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Fed-In Layout'}</Text>
-                    </View>
-                </View>
-
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Fed-Out Layout'}</Text>
-                    </View>
-                </View>
-
             </View>
         );
     }
@@ -45,24 +32,21 @@ class LayoutExample extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'white', 
-        height: 255
+        height: 255,
+        marginTop: 5
     },
     header: {
-        backgroundColor: '#0c570a', height: 30, marginTop: 3, marginBottom: 5
+        backgroundColor: '#e6e6e6',  marginTop: 3, marginBottom: 5, color:'black', padding: 10
     },
     nested_header: {
-        //backgroundColor: '#1abc9c', 
         backgroundColor: '#0c570a',
         height: 30,
         marginBottom: 5,
     },
     textstyle: {
         fontSize: 16,
-        fontWeight: 'bold',
-        color: 'white'
+        color: 'black'
     },
-
-  
 });
 
 export default LayoutExample;

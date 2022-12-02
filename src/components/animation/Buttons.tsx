@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Animated, Easing, View, Alert, Button, Text, TouchableOpacity, Linking } from 'react-native';
+import { StyleSheet, Animated, Easing, View, Alert, Button, Text, TouchableOpacity, Linking, Pressable  } from 'react-native';
 
 import ScalingButton from './ScalingButton';
 import DisplayAnImage from './ImageAnimation';
@@ -8,21 +8,10 @@ import { Props } from './index';
 const Buttons: React.FC<Props> = (props: Props) => {
     const [translation, setTranslation] = useState(0);
 
-    const translationTwo = useRef(
-        new Animated.Value(0)
-    ).current;
-
     const translationThree = useRef(
         new Animated.Value(0)
     ).current;
 
-    const translationFour = useRef(
-        new Animated.Value(0)
-    ).current;
-
-    const translationFive = useRef(
-        new Animated.Value(0)
-    ).current;
 
     const textTranslation = useRef(
         new Animated.Value(0)
@@ -36,23 +25,6 @@ const Buttons: React.FC<Props> = (props: Props) => {
         }).start();
     }, []);
 
-    useEffect(() => {
-        Animated.spring(translationFour, {
-            toValue: 40,
-            // delay: 900,
-            useNativeDriver: true,
-        }).start();
-    }, []);
-
-    useEffect(() => {
-        Animated.spring(translationFive, {
-            toValue: 40,
-            delay: 900,
-            useNativeDriver: true,
-        }).start();
-    }, []);
-
-    
 
     useEffect(() => {
         for (let i = 0; i < 40; i++) {
@@ -62,30 +34,12 @@ const Buttons: React.FC<Props> = (props: Props) => {
         }
     }, []);
 
-    // useEffect(() => {
-    //     for (let i = 10; i < 10; i++) {
-    //         setTimeout(() => {
-    //             setTextTranslation(i);
-    //         }, 5 * i);
-    //     }
-    // }, []);
-
     useEffect(() => {
         Animated.timing(textTranslation, {
             toValue: 10,
             easing: Easing.bounce,
             duration: 1900,
             delay: 900,
-            useNativeDriver: true,
-        }).start();
-    }, []);
-
-    useEffect(() => {
-        Animated.timing(translationTwo, {
-            toValue: 40,
-            easing: Easing.bounce,
-            duration: 1900,
-            delay: 1900,
             useNativeDriver: true,
         }).start();
     }, []);
@@ -122,131 +76,55 @@ const Buttons: React.FC<Props> = (props: Props) => {
     return (
         <View>
 
-            <View>
+            <View style={styles.container}>
                 <View style={styles.header}>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Moving Button in one line'}</Text>
+                    <Text>{'Moving Button in one line'}</Text>
                 </View>
                 <View
                     style={{
-                        width: 150,
-                        height: 40,
-                        marginBottom: 1,
-                        marginTop: 1,
-                        paddingTop: 5,
-                        backgroundColor: '#2196f3',
+                        width: 180,
+                        marginBottom: 5,
+                        backgroundColor: '#c20000',
 
                         transform: [{ translateX: translation }],
                     }}
                 >
-                    <Button
-                        title="Animated Button"
+                    <Pressable
                         accessible={true}
                         accessibilityLabel="Go back"
                         accessibilityHint="Hint button type"
                         accessibilityRole="button"
                         onPress={() => Alert.alert('pressed')}
-                    />
+                    >
+                        <Text style={{fontSize: 18, color:'white', textAlign:'center', padding: 8}}>{'Animated Button'}</Text>
+                    </Pressable>
                 </View>
             </View>
-            
 
-            <View>
+            <View style={{marginBottom: 22}}>
                 <View style={styles.header}>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Delayed Moving Button in one line'}</Text>
+                    <Text>{'Delayed Moving Button in one line'}</Text>
                 </View>
                 <Animated.View
                     style={{
+                        marginTop: 25,
                         width: 100,
                         height: 100,
-                        backgroundColor: 'orange',
+                        backgroundColor: '#c20000',
                         transform: [{ translateX: translationThree }],
                     }}
                 />
             </View>
-        
-
-            <View>
-                <View style={styles.header}>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Bouncing Button'}</Text>
-                </View>
-                <Animated.View
-                    style={{
-                        width: 150,
-                        height: 40,
-                        paddingTop: 3,
-                        backgroundColor: '#2196f3',
-                        transform: [{ translateY: translationTwo }],
-                    }}
-                >
-                    <Button
-                        title="Bouncing Button"
-                        accessible={true}
-                        accessibilityLabel="Go back"
-                        accessibilityHint="Hint button type"
-                        accessibilityRole="button"
-                        onPress={() => Alert.alert('pressed')}
-                    />
-                </Animated.View>
-            </View>
-            
-
-            <View style={{ height: 130, marginTop: 50, marginBottom: 5, }}>
-                <View style={styles.header}>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Spring Button'}</Text>
-                </View>
-                <Animated.View
-                    style={{
-                        backgroundColor: '#2196f3',
-                        paddingTop: 5,
-                        width: 150,
-                        height: 40,
-                        transform: [{ translateY: translationFive }],
-                    }}
-                >
-                    <Button
-                        title="Spring Button"
-                        accessible={true}
-                        accessibilityLabel="Go back"
-                        accessibilityHint="Hint button type"
-                        accessibilityRole="button"
-                        onPress={() => Alert.alert('pressed')}
-                    />
-                </Animated.View>
-            </View>
-
-            <View>
-                <View style={styles.header}>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Scaling Button'}</Text>
-                </View>
-                <Animated.View
-                    style={{
-                        marginLeft: 50,
-                        width: 200,
-                        height: 100,
-                        transform: [{ translateY: translationFour }],
-                    }}
-                >
-                    <ScalingButton
-                        label="Scaling Button"
-                        onPress={() => press()}
-                        styles={{ button: styles.animated_button, label: styles.button_label }} />
-                </Animated.View>
-            </View>
 
             {/* <DisplayAnImage /> */}
 
-            <View>
+            <View style={{marginTop: 15, marginBottom: 28}}>
                 <View style={styles.nested_header}>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Nested Text'}</Text>
+                    <Text>{'Nested Text'}</Text>
                 </View>
-                <Animated.View>
-                    <Text style={{ marginLeft: 50 }}>Some text<Animated.View style={{
-                        width: 145,
-                        height: 20,
-                        paddingTop: 5,
-                        transform: [{ translateX: textTranslation }],
-                    }}>
-                        <View style={{ flexDirection: 'row', height: 50, paddingTop: 0 }}>
+                <Animated.View style={{marginTop: 25}}>
+                    <Text style={{ marginLeft: 50 }}>Some text<View>
+                        <View style={{ flexDirection: 'row', paddingTop: 1, backgroundColor:'white' }}>
                             <TouchableOpacity
                                 accessible={true}
                                 accessibilityLabel="Text Button Example, Click Me!"
@@ -254,14 +132,17 @@ const Buttons: React.FC<Props> = (props: Props) => {
                                 accessibilityRole="link"
                                 onPress={() => Linking.openURL('https://google.com')}
                             >
-                                <View style={{ flex: 1, flexDirection: 'row', paddingBottom: 15 }}>
-                                    <Text style={{ color: 'blue' }}>{'Nested Text.'}</Text>
-                                    <Text style={{ height: 20, color: 'blue' }}
+                                <Animated.View style={{ 
+                                    flex: 1, flexDirection: 'row', 
+                                    transform: [{ translateY: textTranslation }],
+                                    }}>
+                                    <Text style={{ color: 'blue' }}>{' Nested Text.'}</Text>
+                                    <Text style={{ height: 25, color: 'blue' }}
                                     >Click Me!</Text>
-                                </View>
+                                </Animated.View>
                             </TouchableOpacity>
                         </View>
-                    </Animated.View></Text>
+                    </View></Text>
                 </Animated.View>
             </View>
 
@@ -272,29 +153,30 @@ const Buttons: React.FC<Props> = (props: Props) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        flexDirection: 'column',
-        padding: 30
+        backgroundColor:'white', 
+        height: 100,
+        borderRadius:4,
+        marginTop: 6,
+        marginBottom: 15
     },
     ordinary_button: {
         backgroundColor: '#ff5722',
     },
     animated_button: {
-        backgroundColor: '#ff5722'
+        backgroundColor: 'white'
     },
     button_label: {
         color: '#fff',
         fontSize: 20,
         fontWeight: 'bold'
     },
-    header:{
-        backgroundColor: '#0c570a', height: 30, marginTop: 3, marginBottom: 5
+
+    header: {
+        backgroundColor: '#e6e6e6',  marginTop: 3, marginBottom: 5, color:'black', padding: 10,
     },
-    nested_header:{ 
-        //backgroundColor: '#1abc9c', 
-        backgroundColor: '#0c570a',
-        height: 30,
-        marginBottom: 5, 
+    nested_header: {
+        backgroundColor: '#e6e6e6',
+        padding: 10
     }
 });
 

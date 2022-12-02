@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Animated, Easing, View, Alert, Button, } from 'react-native';
+import { StyleSheet, Animated, Easing, View, Alert, Text, Pressable } from 'react-native';
 
 import { Props } from './index';
 
 const BounceButton: React.FC<Props> = (props: Props) => {
-    const [translation, setTranslation] = useState(0);
+    //const [translation, setTranslation] = useState(0);
 
     const translationTwo = useRef(
         new Animated.Value(0)
@@ -29,22 +29,21 @@ const BounceButton: React.FC<Props> = (props: Props) => {
     return (
         <Animated.View
             style={{
-                width: 150,
-                height: 40,
                 paddingTop: 3,
-                marginLeft: 8,
-                backgroundColor: '#2196f3',
+                margin: 16,
                 transform: [{ translateY: translationTwo }],
             }}
         >
-            <Button // you can use Pressable aswell
-                title={props.labelText}
+            <Pressable // you can use Pressable aswell
                 accessible={true}
                 accessibilityLabel="Go back"
                 accessibilityHint="Hint button type"
                 accessibilityRole="button"
                 onPress={() => Alert.alert('pressed')}
-            />
+                style={{backgroundColor:'#c20000', width: 200, height: 50,alignItems:'center', justifyContent:'center'}}
+            >
+                 <Text style={{fontSize: 18, color:'white', textAlign:'center'}}>{props.labelText || ''}</Text>
+            </Pressable>
         </Animated.View>
     );
 }

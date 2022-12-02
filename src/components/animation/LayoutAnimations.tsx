@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   box: {
     width: 200,
     height: 200,
-    backgroundColor: 'red',
+    backgroundColor: '#c20000',
   },
   button: {
     backgroundColor: 'black',

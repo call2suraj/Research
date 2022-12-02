@@ -7,7 +7,8 @@ import {
     Easing,
     TouchableWithoutFeedback,
     View,
-    Button
+    Button,
+    Pressable
 } from 'react-native';
 
 const ScalingButton: React.FC<Props> = (props: Props) => {
@@ -66,15 +67,18 @@ const ScalingButton: React.FC<Props> = (props: Props) => {
                 }
             ]}
             >
-                <View>
-                    <Button // you can use Pressable aswell
+                <View style={{marginTop: 18}}>
+                    <Pressable // you can use Pressable aswell
                         title={props.labelText || ''}
                         accessible={true}
                         accessibilityLabel="Go back"
                         accessibilityHint="Hint button type"
                         accessibilityRole="button"
                         onPress={()=>props.callBack()}
-                    />
+                        style={{backgroundColor:'#c20000', width: 200, height: 50,alignItems:'center', justifyContent:'center'}}
+                    >
+                     <Text style={{fontSize: 18, color:'white', textAlign:'center'}}>{props.labelText || ''}</Text>
+                     </Pressable>
                 </View>
             </Animated.View>
         </TouchableWithoutFeedback>
