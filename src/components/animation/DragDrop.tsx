@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   box: {
     height: 150,
     width: 150,
-    backgroundColor: "blue",
+    backgroundColor: "#c20000",
     borderRadius: 5
   }
 });

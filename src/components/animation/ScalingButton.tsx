@@ -75,7 +75,7 @@ const ScalingButton: React.FC<Props> = (props: Props) => {
                         accessibilityHint="Hint button type"
                         accessibilityRole="button"
                         onPress={()=>props.callBack()}
-                        style={{backgroundColor:'red', width: 200, height: 50,alignItems:'center', justifyContent:'center'}}
+                        style={{backgroundColor:'#c20000', width: 200, height: 50,alignItems:'center', justifyContent:'center'}}
                     >
                      <Text style={{fontSize: 18, color:'white', textAlign:'center'}}>{props.labelText || ''}</Text>
                      </Pressable>

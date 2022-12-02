@@ -29,11 +29,11 @@ class AButton extends React.Component {
                     />
                 </View>
 
-                <View style={[styles.container, styles.marginextra]}>
+                <View style={styles.midcontainer}>
                     <View style={styles.header}>
                         <Text style={styles.textstyle}>{'Scaling Button'}</Text>
                     </View>
-                    <View style={{alignItems:'center', justifyContent:'center'}}>
+                    <View style={{alignItems:'center', justifyContent:'center', marginTop: 32}}>
                     <ScButton
                         press={this.handlePress}
                         labelText={'Scaling Button'}
@@ -64,26 +64,35 @@ class AButton extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'white', 
-        height: 125,
+        height: 225,
         borderRadius:4,
-        marginTop: 10
+        marginTop: 6,
+    },
+    midcontainer: {
+        backgroundColor:'white', 
+        height: 225,
+        borderRadius:4,
+       // marginTop: 16,
     },
     header: {
-        backgroundColor: '#808080', height: 30, marginTop: 3, marginBottom: 5
+        backgroundColor: '#e6e6e6',  marginTop: 3, marginBottom: 5, color:'black'
     },
     nested_header: {
         //backgroundColor: '#1abc9c', 
         backgroundColor: '#0c570a',
-        height: 30,
+        height: 'auto',
         marginBottom: 5,
     },
     textstyle: {
         fontSize: 16,
-        fontWeight: 'bold',
-        color: 'white'
+        fontWeight: 'normal',
+        color: 'black',
+
+        padding: 8
     },
     marginextra: {
-       justifyContent: 'center'
+       justifyContent: 'center',
+       marginTop: 5
     }
   
 });
