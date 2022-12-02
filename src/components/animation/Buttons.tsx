@@ -216,13 +216,13 @@ const Buttons: React.FC<Props> = (props: Props) => {
 
             <View>
                 <View style={styles.header}>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Scaling Button'}</Text>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{'Scaling Button..'}</Text>
                 </View>
                 <Animated.View
                     style={{
                         marginLeft: 50,
                         width: 200,
-                        height: 100,
+                        height: 120,
                         transform: [{ translateY: translationFour }],
                     }}
                 >
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ff5722',
     },
     animated_button: {
-        backgroundColor: '#ff5722'
+        backgroundColor: 'white'
     },
     button_label: {
         color: '#fff',

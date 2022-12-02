@@ -42,11 +42,11 @@ const FedInFedOut = () => {
                     transform: [{ translateY: fadeAnim }],
                 }}
             >
-               <View style={{ height: 300, width: 400, backgroundColor:'powderblue', marginTop: 35}}>
+               <View style={{ height: 300, width: 400, marginTop: 35}}>
                <Text style={styles.fadingText}>Fading View!</Text>
-                <Image style={{margin: 50}}
-                    resizeMode={'contain'}
-                    source={require('../../assets/nab.png')}
+                <Image style={{margin: 5, width: 385, height: 150}}
+                    //resizeMode={'contain'}
+                    source={require('../../assets/nabmoney.png')}
                 />
                </View>
             </Animated.View>
