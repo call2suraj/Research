@@ -38,7 +38,7 @@ const FedInFedOut = () => {
                     width: 400,
                     height: 40,
                     opacity: fadeAnim,
-                    backgroundColor: "white",
+                    // backgroundColor: "white",
                     transform: [{ translateY: fadeAnim }],
                 }}
             >
@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
         backgroundColor: "powderblue"
     },
     fadingText: {
-        fontSize: 18
+        fontSize: 18,
+        padding: 7
     },
     buttonRow: {
         marginVertical: 10,

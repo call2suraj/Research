@@ -101,7 +101,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                 </View>
             </View>
 
-            <View style={{marginBottom: 22}}>
+            <View style={{ backgroundColor:'#f2f2f2'}}>
                 <View style={styles.header}>
                     <Text>{'Delayed Moving Button in one line'}</Text>
                 </View>
@@ -124,7 +124,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                 </View>
                 <Animated.View style={{marginTop: 25}}>
                     <Text style={{ marginLeft: 50 }}>Some text<View>
-                        <View style={{ flexDirection: 'row', paddingTop: 1, backgroundColor:'white' }}>
+                        <View style={{ flexDirection: 'row', paddingTop: 1, backgroundColor:'#f2f2f2' }}>
                             <TouchableOpacity
                                 accessible={true}
                                 accessibilityLabel="Text Button Example, Click Me!"
@@ -153,11 +153,11 @@ const Buttons: React.FC<Props> = (props: Props) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor:'white', 
-        height: 100,
+        backgroundColor:'#f2f2f2', 
+        height: 150,
         borderRadius:4,
-        marginTop: 6,
-        marginBottom: 15
+        marginBottom: 15,
+       
     },
     ordinary_button: {
         backgroundColor: '#ff5722',

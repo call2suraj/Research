@@ -37,8 +37,8 @@ export default function AllAnimations() {
 
 
         <View style={styles.pressbutton}>
-          <Pressable onPress={() => selectComponent('Fedin')} style={{ fontSize: 10 }}>
-            <Text style={{ fontSize: 16, color: 'white' }}>Fedin</Text>
+          <Pressable onPress={() => selectComponent('Feding')} style={{ fontSize: 10 }}>
+            <Text style={{ fontSize: 16, color: 'white' }}>Feding</Text>
           </Pressable>
         </View>
 
@@ -57,7 +57,7 @@ export default function AllAnimations() {
 
         <View style={styles.pressbutton}>
           <Pressable onPress={() => selectComponent('AButton')} style={{ fontSize: 10 }}>
-            <Text style={{ fontSize: 16, color: 'white' }}>Buttons</Text>
+            <Text style={{ fontSize: 16, color: 'white' }}>Button</Text>
           </Pressable>
         </View>
       </View>
@@ -76,7 +76,7 @@ export default function AllAnimations() {
         </View>
       }
 
-      {screen === 'Fedin' && <FedInFedOut />}
+      {screen === 'Feding' && <FedInFedOut />}
 
       {screen === 'Layout' && <LayoutExample />}
 
