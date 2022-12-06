@@ -90,9 +90,9 @@ function MyDrawer() {
           ),
         }} />
 
-      <Drawer.Screen name="Fedding View.." component={FedInFedOut}
+      <Drawer.Screen name="Fading View" component={FedInFedOut}
         options={{
-          title: 'Fedding View.',
+          title: 'Fading View',
           drawerIcon: ({ focused, size }) => (
             <MaterialCommunityIcons name="image-filter-center-focus-weak" size={24} color={focused ? '#7cc' : '#ccc'} />
           ),

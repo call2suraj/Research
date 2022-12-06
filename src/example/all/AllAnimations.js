@@ -38,7 +38,7 @@ export default function AllAnimations() {
 
         <View style={styles.pressbutton}>
           <Pressable onPress={() => selectComponent('Feding')} style={{ fontSize: 10 }}>
-            <Text style={{ fontSize: 16, color: 'white' }}>Feding</Text>
+            <Text style={{ fontSize: 16, color: 'white' }}>Fading</Text>
           </Pressable>
         </View>
 
