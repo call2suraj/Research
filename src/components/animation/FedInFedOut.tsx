@@ -46,7 +46,7 @@ const FedInFedOut = () => {
                <Text style={styles.fadingText}>Fading View!</Text>
                 <Image style={{margin: 5, width: 385, height: 150}}
                     //resizeMode={'contain'}
-                    source={require('../../assets/nabmoney.png')}
+                    source={require('../../../assets/nabmoney.png')}
                 />
                </View>
             </Animated.View>

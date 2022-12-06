@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Animated, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class InnerComponent extends Component<{}> {
   constructor(props) {
@@ -17,8 +16,8 @@ export default class InnerComponent extends Component<{}> {
   render() {
     return (
       <TouchableOpacity onPress={this.onClickEvent}
-        style={{ borderWidth: 0, width: 300, flexDirection: 'column', height: 54, backgroundColor: 'grey', paddingLeft: 16 }}>
-        <Text style={{ color: 'black' }}>text here {this.props.myprop}</Text>
+        style={{ borderWidth: 0, flexDirection: 'column', paddingLeft: 5 }}>
+        <Text style={{ color: 'black', padding: 10 }}> Hidden text goes here for {this.props.myprop}</Text>
       </TouchableOpacity>
     );
   }

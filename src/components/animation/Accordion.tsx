@@ -50,10 +50,10 @@ const styles = StyleSheet.create({
     },
     footer_menu: {
         position: 'absolute',
-        width: 405,
+        width: 410,
         height: 200,
         bottom: -150,
-        backgroundColor: 'grey',
+        backgroundColor: '#1e5aa3',
         alignItems: 'center'
     },
 
@@ -142,7 +142,7 @@ class Accordion extends Component {
                                 }
                             ]}
                         >
-                            <ScrollView style={{ marginTop: 0, backgroundColor: 'grey' }}>
+                            <ScrollView style={{ marginTop: 0, width:'98%' }}>
                                 {this.props.headerBody}
                             </ScrollView>
                         </Animated.View>

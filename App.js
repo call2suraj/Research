@@ -1,77 +1,34 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Pressable, } from 'react-native';
-import FedInFedOut from './src/animation/FedInFedOut';
-import Accordion from './src/components/animation/Accordion';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import HomeApp from './src/example/home/MainApp';
+import ButtonExample from './src/example/buttons/ButtonExample';
 import Buttons from './src/components/animation/Buttons';
-import AButton from './src/example/buttons/ButtonExample';
-
+import AllAnimations from './src/example/all/AllAnimations';
+import Accordion from './src/components/animation/Accordion';
 import InnerComponent from './src/components/animation/InnerComponent';
-import LayoutAnimations from './src/components/animation/LayoutAnimations';
-import LayoutExample from './src/example/layout/LayoutExample';
-import DragDrop from './src/components/animation/DragDrop';
 
-export default function App() {
-  const [screen, setScreen] = useState('Buttons');
-  const selectComponent = (arg) => {
-    console.log(arg);
-    setScreen(arg);
-  };
-
+function Feed() {
   return (
-    <View style={styles.container}>
-      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ fontSize: 20, padding: 5, alignItems: 'center', justifyContent: 'center' }}>Animation Examples</Text>
-      </View>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Feed Screen</Text>
+    </View>
+  );
+}
 
-      <StatusBar style="auto" />
-
-      <View style={{ flexDirection: "row" }}>
-
-        <View style={styles.pressbutton}>
-          <Pressable onPress={() => selectComponent('Buttons')} style={{fontSize:10}}>
-          <Text style={{fontSize: 16, color:'white'}}>Animations</Text>
-          </Pressable>
-        </View>
-
-        <View style={styles.pressbutton}>
-          <Pressable onPress={() => selectComponent('Accordion')} style={{ fontSize: 10 }}>
-            <Text style={{ fontSize: 16, color: 'white' }}>Accordion</Text>
-          </Pressable>
-        </View>
+function Article() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Article Screen</Text>
+    </View>
+  );
+}
 
 
-        <View style={styles.pressbutton}>
-          <Pressable onPress={() => selectComponent('Fedin')} style={{ fontSize: 10 }}>
-            <Text style={{ fontSize: 16, color: 'white' }}>Fedin</Text>
-          </Pressable>
-        </View>
-
-        <View style={styles.pressbutton}>
-          <Pressable onPress={() => selectComponent('Layout')} style={{ fontSize: 10 }}>
-            <Text style={{ fontSize: 16, color: 'white' }}>Layout</Text>
-          </Pressable>
-        </View>
-
-
-        <View style={styles.pressbutton}>
-          <Pressable onPress={() => selectComponent('DragDrop')} style={{ fontSize: 10 }}>
-            <Text style={{ fontSize: 16, color: 'white' }}>DragDrop</Text>
-          </Pressable>
-        </View>
-
-        <View style={styles.pressbutton}>
-          <Pressable onPress={() => selectComponent('AButton')} style={{ fontSize: 10 }}>
-            <Text style={{ fontSize: 16, color: 'white' }}>Buttons</Text>
-          </Pressable>
-        </View>
-      </View>
-
-
-      {screen === 'Buttons' && <Buttons />}
-
-      {screen === 'Accordion' &&
-        <View style={{ flexDirection: 'column', margin: 5, width:'90%' }}>
+function AccordionExample() {
+    return (
+        <View style={{ flexDirection: 'column', margin: 0, width:'92%' }}>
           <View>
             <Accordion headerText="Unavailable Test"
               headerBody={<InnerComponent myprop={'animation'} />}
@@ -79,58 +36,27 @@ export default function App() {
               bgcolor={'#EEEEEE'} />
           </View>
         </View>
-      }
+    );
+  }
 
-      {screen === 'Fedin' && <FedInFedOut />}
+const Drawer = createDrawerNavigator();
 
-      {screen === 'Layout' && <LayoutExample />}
-
-      {screen === 'DragDrop' && <DragDrop />}
-
-      {screen === 'AButton' && <AButton />}
-
-    </View>
+function MyDrawer() {
+  return (
+    <Drawer.Navigator useLegacyImplementation>
+      <Drawer.Screen name="Home" component={HomeApp} />
+      <Drawer.Screen name="Accordion" component={AccordionExample} />
+      <Drawer.Screen name="Buttons" component={ButtonExample} />
+      <Drawer.Screen name="All" component={AllAnimations} />
+      
+    </Drawer.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    marginTop: 20
-  },
-  buttonStyle: {
-    marginHorizontal: 2,
-    marginTop: 5,
-width: 80,
-fontSize: 10,
-backgroundColor: '#2196F3',
-color:'white'
-  },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 2,
-    paddingHorizontal: 5,
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: '#2196F3',
-  },
-  text: {
-    fontSize: 12,
-    lineHeight: 16,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
-    color: 'white',
-  },
-  pressbutton: {
-  marginHorizontal: 1,
-  height:30,
-  width: 'auto',
-  fontSize: 10,
-  padding: 3,
-  backgroundColor: '#2196F3',
-  color: 'white',
-  borderRadius:4
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyDrawer />
+    </NavigationContainer>
+  );
 }
-});
