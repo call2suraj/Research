@@ -75,7 +75,7 @@ export default function HomeApp() {
             },
           }}
         />
-        <Stack.Screen name="Accordion" component={Accordion} />
+        {/* <Stack.Screen name="Accordion" component={Accordion} /> */}
       </Stack.Navigator>
     
   );

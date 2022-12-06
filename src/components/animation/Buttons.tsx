@@ -85,6 +85,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                         width: 180,
                         marginBottom: 5,
                         backgroundColor: '#c20000',
+                        marginTop:35,
 
                         transform: [{ translateX: translation }],
                     }}

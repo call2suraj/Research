@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
         backgroundColor:'white', 
         height: 225,
         borderRadius:4,
-        marginTop: 6,
+       //marginTop: 6,
     },
     midcontainer: {
         backgroundColor:'white', 
