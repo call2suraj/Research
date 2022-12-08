@@ -1,20 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Alert, Text, Pressable } from 'react-native';
-
-import { ScButton, SpButton, BoButton } from '../../components/animation/AnimatedButtons';
 import BounceContainer from '../../components/animation/BounceContainer';
 
-class BounceExample extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    handlePress() {
+const BounceExample: React.FC<Props> = (props: Props) => {
+    const handlePress = () => {
         //do anything you want
         Alert.alert('Container button Pressed !!!')
     }
 
-    getButton() {
+    const getButton = () => {
         return (
             <View>
                 <Pressable // you can use Pressable aswell
@@ -22,7 +16,7 @@ class BounceExample extends React.Component {
                     accessibilityLabel="Go back"
                     accessibilityHint="Hint button type"
                     accessibilityRole="button"
-                    onPress={this.handlePress}
+                    onPress={handlePress}
                     style={{ backgroundColor: '#c20000', width: 200, height: 50, alignItems: 'center', justifyContent: 'center' }}
                 >
                     <Text style={{ fontSize: 18, color: 'white', textAlign: 'center' }}>{'click me'}</Text>
@@ -30,37 +24,37 @@ class BounceExample extends React.Component {
             </View>
         )
     }
-    render() {
-        return (
-            <View>
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Bounce Container Animations Example With Button'}</Text>
-                    </View>
-                    <BounceContainer
-                        press={this.handlePress}
-                        labelText={'Bouncing Button'}
-                        toValue={25}
-                        delay={1200}
-                        duration={1900}
-                        containerItem={this.getButton()} />
-                </View>
 
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Bounce Container Animations Example With Text'}</Text>
-                    </View>
-                    <BounceContainer
-                        press={this.handlePress}
-                        labelText={'Bouncing Button'}
-                        toValue={35}
-                        delay={1500}
-                        duration={2100}
-                        containerItem={<Text style={{ fontSize: 18, color: 'red', textAlign: 'center' }}>{'click me'}</Text>} />
+    return (
+        <View>
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.textstyle}>{'Bounce Container Animations Example With Button'}</Text>
                 </View>
+                <BounceContainer
+                    press={handlePress}
+                    labelText={'Bouncing Button'}
+                    toValue={25}
+                    delay={1200}
+                    duration={1900}
+                    containerItem={getButton()} />
             </View>
-        );
-    }
+
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.textstyle}>{'Bounce Container Animations Example With Text'}</Text>
+                </View>
+                <BounceContainer
+                    press={handlePress}
+                    labelText={'Bouncing Button'}
+                    toValue={35}
+                    delay={1500}
+                    duration={2100}
+                    containerItem={<Text style={{ fontSize: 18, color: 'red', textAlign: 'center' }}>{'click me'}</Text>} />
+            </View>
+        </View>
+    );
+
 }
 
 const styles = StyleSheet.create({

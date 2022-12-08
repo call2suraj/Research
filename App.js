@@ -58,9 +58,9 @@ function MyDrawer() {
             <MaterialCommunityIcons name="arrow-down-drop-circle-outline" size={24} color={focused ? '#7cc' : '#ccc'} />
           ),
         }} />
-      <Drawer.Screen name="Buttons" component={Buttons}
+      <Drawer.Screen name="Text" component={Buttons}
         options={{
-          title: 'Buttons',
+          title: 'Text',
           drawerIcon: ({ focused, size }) => (
             <MaterialCommunityIcons name="gesture-tap-button" size={24} color={focused ? '#7cc' : '#ccc'} />
           ),

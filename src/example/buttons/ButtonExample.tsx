@@ -1,81 +1,74 @@
 import React from 'react';
-import { StyleSheet, View, Alert,Text } from 'react-native';
-
+import { StyleSheet, View, Alert, Text } from 'react-native';
 import { ScButton, SpButton, BoButton } from '../../components/animation/AnimatedButtons';
 
-class AButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+const AButton: React.FC<Props> = (props: Props) => {
 
-    handlePress() {
+    const handlePress = () => {
         //do anything you want
         Alert.alert('Pressed button')
     }
+    return (
+        <View>
 
-    render() {
-        return (
-            <View>
-
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Spring Button'}</Text>
-                    </View>
-                    <SpButton
-                        press={this.handlePress}
-                        labelText={'Spring Button'}
-                        toValue={40}
-                        delay={900}
-                    />
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.textstyle}>{'Spring Button'}</Text>
                 </View>
+                <SpButton
+                    press={handlePress}
+                    labelText={'Spring Button'}
+                    toValue={40}
+                    delay={900}
+                />
+            </View>
 
-                <View style={styles.midcontainer}>
-                    <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Scaling Button'}</Text>
-                    </View>
-                    <View style={{alignItems:'center', justifyContent:'center', marginTop: 32}}>
+            <View style={styles.midcontainer}>
+                <View style={styles.header}>
+                    <Text style={styles.textstyle}>{'Scaling Button'}</Text>
+                </View>
+                <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 32 }}>
                     <ScButton
-                        press={this.handlePress}
+                        press={handlePress}
                         labelText={'Scaling Button'}
                         toValue={1}
                         delay={300} />
-                    </View>
-                   
-                </View>
-
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Bouncing Button'}</Text>
-                    </View>
-                    <BoButton
-                        press={this.handlePress}
-                        labelText={'Bouncing Button'}
-                        toValue={25}
-                        delay={1200}
-                        duration={1900}
-                    />
                 </View>
 
             </View>
-        );
-    }
+
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.textstyle}>{'Bouncing Button'}</Text>
+                </View>
+                <BoButton
+                    press={handlePress}
+                    labelText={'Bouncing Button'}
+                    toValue={25}
+                    delay={1200}
+                    duration={1900}
+                />
+            </View>
+
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor:'white', 
+        backgroundColor: 'white',
         height: 225,
-        borderRadius:4,
-       //marginTop: 6,
+        borderRadius: 4,
+        //marginTop: 6,
     },
     midcontainer: {
-        backgroundColor:'white', 
+        backgroundColor: 'white',
         height: 225,
-        borderRadius:4,
-       // marginTop: 16,
+        borderRadius: 4,
+        // marginTop: 16,
     },
     header: {
-        backgroundColor: '#e6e6e6',  marginTop: 3, marginBottom: 5, color:'black'
+        backgroundColor: '#e6e6e6', marginTop: 3, marginBottom: 5, color: 'black'
     },
     nested_header: {
         //backgroundColor: '#1abc9c', 
@@ -91,10 +84,10 @@ const styles = StyleSheet.create({
         padding: 8
     },
     marginextra: {
-       justifyContent: 'center',
-       marginTop: 5
+        justifyContent: 'center',
+        marginTop: 5
     }
-  
+
 });
 
 export default AButton;

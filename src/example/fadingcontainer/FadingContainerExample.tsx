@@ -1,20 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, Alert, Text, Pressable } from 'react-native';
 
-import { ScButton, SpButton, BoButton } from '../../components/animation/AnimatedButtons';
 import FadingContainer from '../../components/animation/FadingContainer';
 
-class FadingContainerExample extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    handlePress() {
+const FadingContainerExample: React.FC<Props> = (props: Props) => {
+    const handlePress = () => {
         //do anything you want
         Alert.alert('Container button Pressed !!!')
     }
 
-    getButton() {
+    const getButton = () => {
         return (
             <View>
                 <Pressable // you can use Pressable aswell
@@ -22,7 +17,7 @@ class FadingContainerExample extends React.Component {
                     accessibilityLabel="Go back"
                     accessibilityHint="Hint button type"
                     accessibilityRole="button"
-                    onPress={this.handlePress}
+                    onPress={handlePress}
                     style={{ backgroundColor: '#c20000', width: 200, height: 50, alignItems: 'center', justifyContent: 'center' }}
                 >
                     <Text style={{ fontSize: 18, color: 'white', textAlign: 'center' }}>{'click me'}</Text>
@@ -30,28 +25,28 @@ class FadingContainerExample extends React.Component {
             </View>
         )
     }
-    render() {
-        return (
-            <View>
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Fading Container Animations Example With Button'}</Text>
-                    </View>
-                    <View style={{ padding: 75}}>
-                        <FadingContainer containerItem={this.getButton()}/>
-                    </View>
-                    
+
+    return (
+        <View>
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.textstyle}>{'Fading Container Animations Example With Button'}</Text>
+                </View>
+                <View style={{ paddingLeft: 80 }}>
+                    <FadingContainer containerItem={getButton()} />
                 </View>
 
-                <View style={styles.container}>
-                    <View style={styles.header}>
-                        <Text style={styles.textstyle}>{'Fading Container Animations Example With Text'}</Text>
-                    </View>
-                    <FadingContainer containerItem={<Text style={{ fontSize: 18, color: 'red', textAlign: 'center' }}>{'click me'}</Text>} />
-                </View>
             </View>
-        );
-    }
+
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.textstyle}>{'Fading Container Animations Example With Text'}</Text>
+                </View>
+                <FadingContainer containerItem={<Text style={{ fontSize: 18, color: 'red', textAlign: 'center' }}>{'click me'}</Text>} />
+            </View>
+        </View>
+    );
+
 }
 
 const styles = StyleSheet.create({
