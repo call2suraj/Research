@@ -10,7 +10,7 @@ const BounceExample: React.FC<Props> = (props: Props) => {
 
     const getButton = () => {
         return (
-            <View>
+            <View style={{alignItems:'center'}}>
                 <Pressable // you can use Pressable aswell
                     accessible={true}
                     accessibilityLabel="Go back"

@@ -1,6 +1,6 @@
-import React, { Component, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, StyleSheet, ScrollView, TouchableOpacity, Animated, LogBox } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from '../../styles/Accordion.style';
 

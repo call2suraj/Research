@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Animated, Easing, View, Alert, Button, Text, TouchableOpacity, Linking, Pressable  } from 'react-native';
+import { Animated, Easing, View, Alert, Text, TouchableOpacity, Linking, Pressable  } from 'react-native';
 
 import ScalingButton from './ScalingButton';
-import DisplayAnImage from './ImageAnimation';
+
+import styles from '../../styles/Buttons.style';
 import { Props } from './index';
 
 const Buttons: React.FC<Props> = (props: Props) => {
@@ -86,7 +87,6 @@ const Buttons: React.FC<Props> = (props: Props) => {
                         marginBottom: 5,
                         backgroundColor: '#c20000',
                         marginTop:35,
-
                         transform: [{ translateX: translation }],
                     }}
                 >
@@ -97,7 +97,7 @@ const Buttons: React.FC<Props> = (props: Props) => {
                         accessibilityRole="button"
                         onPress={() => Alert.alert('pressed')}
                     >
-                        <Text style={{fontSize: 18, color:'white', textAlign:'center', padding: 8}}>{'Animated Button'}</Text>
+                        <Text style={styles.animated_button}>{'Animated Button'}</Text>
                     </Pressable>
                 </View>
             </View>
@@ -117,15 +117,13 @@ const Buttons: React.FC<Props> = (props: Props) => {
                 />
             </View>
 
-            {/* <DisplayAnImage /> */}
-
             <View style={{marginTop: 15, marginBottom: 28}}>
                 <View style={styles.nested_header}>
                     <Text>{'Nested Text'}</Text>
                 </View>
                 <Animated.View style={{marginTop: 25}}>
                     <Text style={{ marginLeft: 50 }}>Some text<View>
-                        <View style={{ flexDirection: 'row', paddingTop: 1, backgroundColor:'#f2f2f2' }}>
+                        <View style={styles.text_view}>
                             <TouchableOpacity
                                 accessible={true}
                                 accessibilityLabel="Text Button Example, Click Me!"
@@ -150,35 +148,5 @@ const Buttons: React.FC<Props> = (props: Props) => {
         </View>
     );
 }
-
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor:'#f2f2f2', 
-        height: 150,
-        borderRadius:4,
-        marginBottom: 15,
-       
-    },
-    ordinary_button: {
-        backgroundColor: '#ff5722',
-    },
-    animated_button: {
-        backgroundColor: 'white'
-    },
-    button_label: {
-        color: '#fff',
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-
-    header: {
-        backgroundColor: '#e6e6e6',  marginTop: 3, marginBottom: 5, color:'black', padding: 10,
-    },
-    nested_header: {
-        backgroundColor: '#e6e6e6',
-        padding: 10
-    }
-});
 
 export default Buttons;
