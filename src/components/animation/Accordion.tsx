@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Text, View, StyleSheet, ScrollView, TouchableOpacity, Animated, LogBox } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -58,20 +58,17 @@ const styles = StyleSheet.create({
     },
 
 });
-class Accordion extends Component {
-    constructor(props) {
-        super(props);
-        this.y_translate = new Animated.Value(0);
-        this.state = { isHidden: this.props.isCollapse || false };
-    }
-    
-    onPress() {
-        this.setState({ isHidden: !this.state.isHidden });
-        if (this.state.isHidden) {
+const Accordion: React.FC<Props> = (props: Props) => {
+    const y_translate = useRef(new Animated.Value(0)).current;
+    const [isHidden, setIsHidden] = useState(true);
+
+    const onPress = () => {
+        setIsHidden(!isHidden);
+        if (isHidden) {
             {
-                this.y_translate.setValue(0);
+                y_translate.setValue(0);
                 Animated.spring(
-                    this.y_translate,
+                    y_translate,
                     {
                         toValue: 1,
                         friction: 3,
@@ -81,9 +78,9 @@ class Accordion extends Component {
             }
         } else {
             {
-                this.y_translate.setValue(1);
+                y_translate.setValue(1);
                 Animated.spring(
-                    this.y_translate,
+                    y_translate,
                     {
                         toValue: 0,
                         friction: 4,
@@ -93,64 +90,58 @@ class Accordion extends Component {
             }
         }
     }
-  
-    componentDidMount() {
-        LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
-    }
 
-    render() {
-        const menu_moveY = this.y_translate.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, 50]
-        });
-        console.log('onPress ' + this.state.isHidden)
-        return (
-            <View style={styles.topContainer} >
-                <TouchableOpacity style={[styles.innerContainer, { backgroundColor: this.props.bgcolor }]}
-                    onPress={() => this.onPress()}>
-                    <Text style={styles.textStyle}
-                    >
-                        {this.props.headerText}
-                    </Text>
-                    {
-                        this.state.isHidden ?
-                            <Icon
-                                name="expand-more"
-                                size={30}
-                                style={styles.iconStyleRight}
-                            /> :
-                            <Icon
-                                name="expand-less"
-                                size={30}
-                                style={styles.iconStyleRight}
-                            />
-                    }
-                </TouchableOpacity>
-                {this.state.isHidden ? null :
-                    <View
-                        style={styles.lowerContainer}
-                    >
-                        <Animated.View
-                            style={[
-                                styles.footer_menu,
-                                {
-                                    transform: [
-                                        {
-                                            translateY: menu_moveY
-                                        }
-                                    ]
-                                }
-                            ]}
-                        >
-                            <ScrollView style={{ marginTop: 0, width:'98%' }}>
-                                {this.props.headerBody}
-                            </ScrollView>
-                        </Animated.View>
-                    </View>
+    const menu_moveY = y_translate.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 50]
+    });
+    console.log('onPress ' + isHidden)
+    return (
+        <View style={styles.topContainer} >
+            <TouchableOpacity style={[styles.innerContainer, { backgroundColor: props.bgcolor }]}
+                onPress={() => onPress()}>
+                <Text style={styles.textStyle}
+                >
+                    {props.headerText}
+                </Text>
+                {
+                    isHidden ?
+                        <Icon
+                            name="expand-more"
+                            size={30}
+                            style={styles.iconStyleRight}
+                        /> :
+                        <Icon
+                            name="expand-less"
+                            size={30}
+                            style={styles.iconStyleRight}
+                        />
                 }
-            </View>
-        );
-    }
+            </TouchableOpacity>
+            {isHidden ? null :
+                <View
+                    style={styles.lowerContainer}
+                >
+                    <Animated.View
+                        style={[
+                            styles.footer_menu,
+                            {
+                                transform: [
+                                    {
+                                        translateY: menu_moveY
+                                    }
+                                ]
+                            }
+                        ]}
+                    >
+                        <ScrollView style={{ marginTop: 0, width: '98%' }}>
+                            {props.headerBody}
+                        </ScrollView>
+                    </Animated.View>
+                </View>
+            }
+        </View>
+    );
 }
 
 Accordion.propTypes = {
