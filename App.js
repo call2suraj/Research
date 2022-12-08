@@ -8,27 +8,12 @@ import DragDrop from './src/components/animation/DragDrop';
 import Buttons from './src/components/animation/Buttons';
 import FedInFedOut from './src/components/animation/FedInFedOut';
 import AllAnimations from './src/example/all/AllAnimations';
+import BounceExample from './src/example/bouncecontainer/BounceExample';
 import Accordion from './src/components/animation/Accordion';
 import InnerComponent from './src/components/animation/InnerComponent';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-
-function Feed() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Feed Screen</Text>
-    </View>
-  );
-}
-
-function Article() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Article Screen</Text>
-    </View>
-  );
-}
-
 
 function AccordionExample() {
   return (
@@ -106,7 +91,14 @@ function MyDrawer() {
           ),
         }} />
 
-    </Drawer.Navigator>
+      <Drawer.Screen name="Bounce Container" component={BounceExample}
+        options={{
+          title: 'Bounce Container',
+          drawerIcon: ({ focused, size }) => (
+            <Entypo name="archive" size={24} color={focused ? '#7cc' : '#ccc'} />
+          ),
+        }} />
+      </Drawer.Navigator>
   );
 }
 
