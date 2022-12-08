@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeApp from './src/example/home/MainApp';
-import ButtonExample from './src/example/buttons/ButtonExample';
+import FadingContainerExample from './src/example/fadingcontainer/FadingContainerExample';
 import DragDrop from './src/components/animation/DragDrop';
 import Buttons from './src/components/animation/Buttons';
 import FedInFedOut from './src/components/animation/FedInFedOut';
@@ -98,6 +98,16 @@ function MyDrawer() {
             <Entypo name="archive" size={24} color={focused ? '#7cc' : '#ccc'} />
           ),
         }} />
+
+      <Drawer.Screen name="Fading Container" component={FadingContainerExample}
+        options={{
+          title: 'Fading Container',
+          drawerIcon: ({ focused, size }) => (
+            // <Entypo name="archive" size={24} color={focused ? '#7cc' : '#ccc'} />
+            <MaterialCommunityIcons name="folder-hidden" size={24} color={focused ? '#7cc' : '#ccc'} />
+          ),
+        }} />
+
       </Drawer.Navigator>
   );
 }

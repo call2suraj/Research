@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Pressable, } from 'react-native';
-import FedInFedOut from '../animation/FedInFedOut';
-import Accordion from '../../components/animation/Accordion';
-import Buttons from '../../components/animation/Buttons';
-import AButton from '../../example/buttons/ButtonExample';
+import FedInFedOut from '../components/animation/FedInFedOut';
+import Accordion from '../components/animation/Accordion';
+import Buttons from '../components/animation/Buttons';
+import AButton from '../example/buttons/ButtonExample';
 
-import InnerComponent from '../../components/animation/InnerComponent';
-import LayoutAnimations from '../../components/animation/LayoutAnimations';
-import LayoutExample from '../../example/layout/LayoutExample';
-import DragDrop from '../../components/animation/DragDrop';
+import InnerComponent from '../components/animation/InnerComponent';
+import LayoutAnimations from '../components/animation/LayoutAnimations';
+import LayoutExample from '../example/layout/LayoutExample';
+import DragDrop from '../components/animation/DragDrop';
 
 export default function MainApp() {
   const [screen, setScreen] = useState('Buttons');
