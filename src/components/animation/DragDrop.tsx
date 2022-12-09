@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+import styles from '../../styles/DragDrop.style';
 
 const DragDrop = () => {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -34,23 +35,6 @@ const DragDrop = () => {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  titleText: {
-    fontSize: 14,
-    lineHeight: 24,
-    fontWeight: "bold"
-  },
-  box: {
-    height: 150,
-    width: 150,
-    backgroundColor: "#c20000",
-    borderRadius: 5
-  }
-});
+
 
 export default DragDrop;
