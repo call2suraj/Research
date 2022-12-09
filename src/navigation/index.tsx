@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Pressable, } from 'react-native';
-import FedInFedOut from '../components/animation/FedInFedOut';
+import FedInFedOut from '../components/animation/FadeInFadeOut';
 import Accordion from '../components/animation/Accordion';
 import Buttons from '../components/animation/Buttons';
 import AButton from '../example/buttons/ButtonExample';

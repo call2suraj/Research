@@ -6,7 +6,7 @@ import HomeApp from './src/example/home/MainApp';
 import FadingContainerExample from './src/example/fadingcontainer/FadingContainerExample';
 import DragDrop from './src/components/animation/DragDrop';
 import Buttons from './src/components/animation/Buttons';
-import FedInFedOut from './src/components/animation/FedInFedOut';
+import FedInFedOut from './src/components/animation/FadeInFadeOut';
 import AllAnimations from './src/example/all/AllAnimations';
 import BounceExample from './src/example/bouncecontainer/BounceExample';
 import Accordion from './src/components/animation/Accordion';

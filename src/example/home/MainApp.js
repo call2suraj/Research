@@ -9,7 +9,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
-import FedInFedOut from '../../components/animation/FedInFedOut';
+import FedInFedOut from '../../components/animation/FadeInFadeOut';
 import Accordion from '../../components/animation/Accordion';
 import Buttons from '../../components/animation/Buttons';
 import ButtonExample from '../buttons/ButtonExample';
