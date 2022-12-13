@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Animated, Text, View, StyleSheet, SafeAreaView, Image } from "react-native";
+import styles from '../../styles/FadeInFadeOut.style';
 
 const FedInFedOut = () => {
     // fadeAnim will be used as the value for opacity. Initial Value: 0
@@ -42,9 +43,9 @@ const FedInFedOut = () => {
                     transform: [{ translateY: fadeAnim }],
                 }}
             >
-               <View style={{ height: 300, width: 400, marginTop: 35}}>
+               <View style={styles.fading_view}>
                <Text style={styles.fadingText}>Fading View!</Text>
-                <Image style={{margin: 5, width: 385, height: 150}}
+                <Image style={styles.fading_img}
                     //resizeMode={'contain'}
                     source={require('../../../assets/nabmoney.png')}
                 />
@@ -53,29 +54,5 @@ const FedInFedOut = () => {
         </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        margin: 10,
-    },
-    fadingContainer: {
-        padding: 10,
-        backgroundColor: "powderblue"
-    },
-    fadingText: {
-        fontSize: 18,
-        padding: 7
-    },
-    buttonRow: {
-        marginVertical: 10,
-        flexDirection: 'column',
-        flex: 1,
-        backgroundColor: 'red'
-    },
-    buttonStyle: {
-        marginHorizontal: 20,
-        marginTop: 5
-      }
-});
 
 export default FedInFedOut;

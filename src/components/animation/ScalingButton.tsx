@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { Props } from './index';
 import {
-    StyleSheet,
     Text,
     Animated,
     Easing,
     TouchableWithoutFeedback,
     View,
-    Button,
     Pressable
 } from 'react-native';
+
+import styles from '../../styles/ScalingButton.style';
 
 const ScalingButton: React.FC<Props> = (props: Props) => {
     const scaleValue = useRef(
@@ -75,29 +75,14 @@ const ScalingButton: React.FC<Props> = (props: Props) => {
                         accessibilityHint="Hint button type"
                         accessibilityRole="button"
                         onPress={()=>props.callBack()}
-                        style={{backgroundColor:'#c20000', width: 200, height: 50,alignItems:'center', justifyContent:'center'}}
+                        style={styles.button_style}
                     >
-                     <Text style={{fontSize: 18, color:'white', textAlign:'center'}}>{props.labelText || ''}</Text>
+                     <Text style={styles.text_style}>{props.labelText || ''}</Text>
                      </Pressable>
                 </View>
             </Animated.View>
         </TouchableWithoutFeedback>
     );
 }
-
-const styles = StyleSheet.create({
-    default_button: {
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    button: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
-        borderWidth: 1,
-        borderColor: '#eee',
-        margin: 20
-    },
-});
 
 export default ScalingButton;

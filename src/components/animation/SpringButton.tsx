@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { StyleSheet, Animated, Easing, View, Button, Pressable, Text } from 'react-native';
+import { StyleSheet, Animated, View, Pressable, Text } from 'react-native';
 import { Props } from './index';
 
 const SpringButton: React.FC<Props> = (props: Props) => {
