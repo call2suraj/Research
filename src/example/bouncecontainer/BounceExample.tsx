@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Alert, Text, Pressable } from 'react-native';
+import { View, Alert, Text, Pressable } from 'react-native';
 import BounceContainer from '../../components/animation/BounceContainer';
+import styles from '../../styles/BounceExample.style';
 
 const BounceExample: React.FC<Props> = (props: Props) => {
     const handlePress = () => {
@@ -17,9 +18,9 @@ const BounceExample: React.FC<Props> = (props: Props) => {
                     accessibilityHint="Hint button type"
                     accessibilityRole="button"
                     onPress={handlePress}
-                    style={{ backgroundColor: '#c20000', width: 200, height: 50, alignItems: 'center', justifyContent: 'center' }}
+                    style={styles.button_style}
                 >
-                    <Text style={{ fontSize: 18, color: 'white', textAlign: 'center' }}>{'click me'}</Text>
+                    <Text style={styles.text_style}>{'click me'}</Text>
                 </Pressable>
             </View>
         )
@@ -50,31 +51,10 @@ const BounceExample: React.FC<Props> = (props: Props) => {
                     toValue={35}
                     delay={1500}
                     duration={2100}
-                    containerItem={<Text style={{ fontSize: 18, color: 'red', textAlign: 'center' }}>{'click me'}</Text>} />
+                    containerItem={<Text style={styles.red_text_style}>{'click me'}</Text>} />
             </View>
         </View>
     );
-
 }
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'white',
-        height: 255,
-        marginTop: 5
-    },
-    header: {
-        backgroundColor: '#e6e6e6', marginTop: 3, marginBottom: 5, color: 'black', padding: 10
-    },
-    nested_header: {
-        backgroundColor: '#0c570a',
-        height: 30,
-        marginBottom: 5,
-    },
-    textstyle: {
-        fontSize: 16,
-        color: 'black'
-    },
-});
 
 export default BounceExample;

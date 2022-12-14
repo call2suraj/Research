@@ -9,11 +9,14 @@ import Buttons from './src/components/animation/Buttons';
 import FedInFedOut from './src/components/animation/FadeInFadeOut';
 import AllAnimations from './src/example/all/AllAnimations';
 import BounceExample from './src/example/bouncecontainer/BounceExample';
+import ScalingExample from './src/example/scalingcontainer/ScalingExample';
+
 import Accordion from './src/components/animation/Accordion';
 import InnerComponent from './src/components/animation/InnerComponent';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Entypo } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+// import { MaterialIcons } from '@expo/vector-icons';
 
 function AccordionExample() {
   return (
@@ -107,6 +110,17 @@ function MyDrawer() {
             <MaterialCommunityIcons name="folder-hidden" size={24} color={focused ? '#7cc' : '#ccc'} />
           ),
         }} />
+
+
+      <Drawer.Screen name="Scaling Container" component={ScalingExample}
+        options={{
+          title: 'Scaling Container',
+          drawerIcon: ({ focused, size }) => (
+            // <MaterialIcons name="swap-vert" size={24} color="black" />
+            <MaterialCommunityIcons name="swap-horizontal" size={24} color={focused ? '#7cc' : '#ccc'}/>
+          ),
+        }} />
+
 
       </Drawer.Navigator>
   );

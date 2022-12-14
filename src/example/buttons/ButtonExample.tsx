@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Alert, Text } from 'react-native';
 import { ScButton, SpButton, BoButton } from '../../components/animation/AnimatedButtons';
+import styles from '../../styles/ButtonExample.style';
 
 const AButton: React.FC<Props> = (props: Props) => {
 
@@ -10,7 +11,6 @@ const AButton: React.FC<Props> = (props: Props) => {
     }
     return (
         <View>
-
             <View style={styles.container}>
                 <View style={styles.header}>
                     <Text style={styles.textstyle}>{'Spring Button'}</Text>
@@ -34,7 +34,6 @@ const AButton: React.FC<Props> = (props: Props) => {
                         toValue={1}
                         delay={300} />
                 </View>
-
             </View>
 
             <View style={styles.container}>
@@ -49,45 +48,8 @@ const AButton: React.FC<Props> = (props: Props) => {
                     duration={1900}
                 />
             </View>
-
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'white',
-        height: 225,
-        borderRadius: 4,
-        //marginTop: 6,
-    },
-    midcontainer: {
-        backgroundColor: 'white',
-        height: 225,
-        borderRadius: 4,
-        // marginTop: 16,
-    },
-    header: {
-        backgroundColor: '#e6e6e6', marginTop: 3, marginBottom: 5, color: 'black'
-    },
-    nested_header: {
-        //backgroundColor: '#1abc9c', 
-        backgroundColor: '#0c570a',
-        height: 'auto',
-        marginBottom: 5,
-    },
-    textstyle: {
-        fontSize: 16,
-        fontWeight: 'normal',
-        color: 'black',
-
-        padding: 8
-    },
-    marginextra: {
-        justifyContent: 'center',
-        marginTop: 5
-    }
-
-});
 
 export default AButton;
