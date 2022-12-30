@@ -127,7 +127,7 @@ function MyDrawer() {
           title: 'Spring Container',
           drawerIcon: ({ focused, size }) => (
             // <MaterialIcons name="swap-vert" size={24} color="black" />
-            <MaterialCommunityIcons name="swap-horizontal" size={24} color={focused ? '#7cc' : '#ccc'} />
+            <MaterialIcons name="swap-vert" size={24} color={focused ? '#7cc' : '#ccc'} />
           ),
         }} />
 
