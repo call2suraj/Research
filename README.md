@@ -35,11 +35,11 @@ Demo
 
 Android:
 
-https://user-images.githubusercontent.com/31704596/203524133-60490b38-57cc-401d-8fd2-5a628dce7c11.mp4
+
+APIs:
 
 IOS:<img width="711" alt="Screenshot 2022-12-30 at 11 31 11 PM" src="https://user-images.githubusercontent.com/31704596/210070518-b3a23cb5-1793-4290-bdcf-11c87d27873e.png">
 
 
-https://user-images.githubusercontent.com/31704596/203732639-c037d70d-eb6f-43a3-a4a4-c5ac0b27991a.mp4
 
 
