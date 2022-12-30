@@ -23,7 +23,7 @@ function AccordionExample() {
   return (
     <View style={{ flexDirection: 'column', margin: 0, width: '92%' }}>
       <View>
-        <Accordion headerText="Unavailable Test"
+        <Accordion headerText="Header Test"
           headerBody={<InnerComponent myprop={'animation'} />}
           isCollapse={true}
           bgcolor={'#EEEEEE'} />
