@@ -10,6 +10,7 @@ import FedInFedOut from './src/components/animation/FadeInFadeOut';
 import AllAnimations from './src/example/all/AllAnimations';
 import BounceExample from './src/example/bouncecontainer/BounceExample';
 import ScalingExample from './src/example/scalingcontainer/ScalingExample';
+import SpringExample from './src/example/springcontainer/SpringExample';
 
 import Accordion from './src/components/animation/Accordion';
 import InnerComponent from './src/components/animation/InnerComponent';
@@ -118,6 +119,15 @@ function MyDrawer() {
           drawerIcon: ({ focused, size }) => (
             // <MaterialIcons name="swap-vert" size={24} color="black" />
             <MaterialCommunityIcons name="swap-horizontal" size={24} color={focused ? '#7cc' : '#ccc'}/>
+          ),
+        }} />
+
+      <Drawer.Screen name="Spring Container" component={SpringExample}
+        options={{
+          title: 'Spring Container',
+          drawerIcon: ({ focused, size }) => (
+            // <MaterialIcons name="swap-vert" size={24} color="black" />
+            <MaterialCommunityIcons name="swap-horizontal" size={24} color={focused ? '#7cc' : '#ccc'} />
           ),
         }} />
 
