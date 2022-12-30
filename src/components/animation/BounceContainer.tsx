@@ -1,10 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { Animated, Easing, Alert, Text, Pressable } from 'react-native';
-
+import React, { useState, useEffect, useRef } from 'react';
+import { StyleSheet, Animated, Easing, View, Alert, Text, Pressable } from 'react-native';
+import styles from '../../styles/BounceContainer.style';
 import { Props } from './index';
-import styles from '../../styles/BounceButton.style';
 
-const BounceButton: React.FC<Props> = (props: Props) => {
+const BounceContainer: React.FC<Props> = (props: Props) => {
     //const [translation, setTranslation] = useState(0);
 
     const translationTwo = useRef(
@@ -21,6 +20,7 @@ const BounceButton: React.FC<Props> = (props: Props) => {
         }).start();
     }, []);
 
+
     const onPress = () => {
         //do anything you want
     }
@@ -33,18 +33,11 @@ const BounceButton: React.FC<Props> = (props: Props) => {
                 transform: [{ translateY: translationTwo }],
             }}
         >
-            <Pressable // you can use Pressable aswell
-                accessible={true}
-                accessibilityLabel="Go back"
-                accessibilityHint="Hint button type"
-                accessibilityRole="button"
-                onPress={() => Alert.alert('pressed')}
-                style={styles.button_style}
-            >
-                 <Text style={styles.button_text}>{props.labelText || ''}</Text>
-            </Pressable>
+            <View style={styles.container}>
+            {props.containerItem}
+            </View>
         </Animated.View>
     );
 }
 
-export default BounceButton;
+export default BounceContainer;

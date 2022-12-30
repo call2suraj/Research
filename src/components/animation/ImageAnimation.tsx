@@ -2,7 +2,6 @@
 import React, { Component, useEffect, useRef } from 'react';
 import {StyleSheet, AppRegistry,Text, View,Animated,Easing} from 'react-native';  
 import { Props } from './index';
-//export default class DisplayAnImage extends Component {  
 
     const DisplayAnImage: React.FC<Props> = (props: Props) => {
 
@@ -87,7 +86,7 @@ import { Props } from './index';
             </View>  
         )  
     }  
-//}  
+ 
 const styles = StyleSheet.create({  
     container: {  
         flex: 1,  

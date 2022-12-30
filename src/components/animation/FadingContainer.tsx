@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Animated, Text, View, StyleSheet, SafeAreaView, Image } from "react-native";
+import styles from '../../styles/FadingContainer.style';
 
-const FedInFedOut = () => {
+const FadingContainer: React.FC<Props> = (props: Props) => {
     // fadeAnim will be used as the value for opacity. Initial Value: 0
     const fadeAnim = useRef(new Animated.Value(0)).current;
     const [isMounted, setIsMounted] = useState(false)
@@ -17,7 +18,7 @@ const FedInFedOut = () => {
     };
 
     useEffect(() => {
-        console.log('invoked....fedin');
+        console.log('invoked....fading');
         // Will change fadeAnim value to 1 in 5 seconds
         Animated.timing(fadeAnim, {
             toValue: 1,
@@ -38,43 +39,18 @@ const FedInFedOut = () => {
                     width: 400,
                     height: 40,
                     opacity: fadeAnim,
-                    backgroundColor: "white",
                     transform: [{ translateY: fadeAnim }],
                 }}
             >
-               <View style={{ height: 300, width: 400, marginTop: 35}}>
-               <Text style={styles.fadingText}>Fading View!</Text>
-                <Image style={{margin: 5, width: 385, height: 150}}
-                    //resizeMode={'contain'}
-                    source={require('../../assets/nabmoney.png')}
-                />
-               </View>
+               <View style={styles.container_item}>
+                 {props.containerItem}
+               </View> 
+              
             </Animated.View>
         </SafeAreaView>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        margin: 10,
-    },
-    fadingContainer: {
-        padding: 10,
-        backgroundColor: "powderblue"
-    },
-    fadingText: {
-        fontSize: 18
-    },
-    buttonRow: {
-        marginVertical: 10,
-        flexDirection: 'column',
-        flex: 1,
-        backgroundColor: 'red'
-    },
-    buttonStyle: {
-        marginHorizontal: 20,
-        marginTop: 5
-      }
-});
 
-export default FedInFedOut;
+
+export default FadingContainer;

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { StyleSheet, Animated, Easing, View, Button, Pressable, Text } from 'react-native';
+import { Animated, View, Pressable, Text } from 'react-native';
 import { Props } from './index';
+import styles from '../../styles/SpringButton.style';
 
 const SpringButton: React.FC<Props> = (props: Props) => {
     const translationFive = useRef(
@@ -28,29 +29,17 @@ const SpringButton: React.FC<Props> = (props: Props) => {
                     }}
                 >
                     <Pressable
-                        //title={props.labelText}
                         accessible={true}
                         accessibilityLabel="Go back"
                         accessibilityHint="Hint button type"
                         accessibilityRole="button"
                         onPress={()=>props.callBack()}
                     >
-                        <Text style={{fontSize: 18, color:'white', textAlign:'center'}}>{props.labelText || ''}</Text>
+                        <Text style={styles.text_style}>{props.labelText || ''}</Text>
                     </Pressable>
                 </Animated.View>
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-        padding: 30
-    },
-    header:{
-        backgroundColor: '#0c570a', height: 30, marginTop: 3, marginBottom: 5
-    },
-});
 
 export {SpringButton};

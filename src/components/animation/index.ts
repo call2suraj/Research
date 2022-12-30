@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 
-import Component from './Component';
+import Component from './AnimationExample';
 import { RootState } from '../../shared/redux/reducers';
 
 export interface Props {
