@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Alert, Text, Pressable } from 'react-native';
 import ScalingContainer from '../../components/animation/ScalingContainer';
+import styles from '../../styles/ScalingExample.style';
 
 const ScalingExample: React.FC<Props> = (props: Props) => {
     const handlePress = () => {
@@ -52,25 +53,5 @@ const ScalingExample: React.FC<Props> = (props: Props) => {
     );
 
 }
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'white',
-        height: 255,
-        marginTop: 5
-    },
-    header: {
-        backgroundColor: '#e6e6e6', marginTop: 3, marginBottom: 5, color: 'black', padding: 10
-    },
-    nested_header: {
-        backgroundColor: '#0c570a',
-        height: 30,
-        marginBottom: 5,
-    },
-    textstyle: {
-        fontSize: 16,
-        color: 'black'
-    },
-});
 
 export default ScalingExample;
