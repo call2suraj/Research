@@ -36,9 +36,13 @@ Demo
 Android:
 
 
+https://user-images.githubusercontent.com/31704596/210075439-02e1d11b-9d79-469f-a65d-a939cc91cea6.mp4
+
+
+
 APIs:
 
-IOS:<img width="711" alt="Screenshot 2022-12-30 at 11 31 11 PM" src="https://user-images.githubusercontent.com/31704596/210070518-b3a23cb5-1793-4290-bdcf-11c87d27873e.png">
+<img width="711" alt="Screenshot 2022-12-30 at 11 31 11 PM" src="https://user-images.githubusercontent.com/31704596/210070518-b3a23cb5-1793-4290-bdcf-11c87d27873e.png">
 
 
 
